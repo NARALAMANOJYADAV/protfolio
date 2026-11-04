@@ -32,10 +32,14 @@ const About = () => {
         "url": "https://tech4.in/about",
         "name": "About Narala Manoj Yadav - AI & Data Science Engineer",
         "description": "Biography, education, technical skills, and verified profiles of Narala Manoj Yadav (naralamanojyadav).",
+        "dateCreated": "2026-06-10T18:10:36+05:30",
+        "dateModified": "2026-11-04T22:00:00+05:30",
         "mainEntity": {
           "@type": "Person",
           "@id": "https://tech4.in/#person",
           "name": "Narala Manoj Yadav",
+          "identifier": "naralamanojyadav",
+          "description": "B.Tech in Artificial Intelligence & Data Science at NBKRIST, Full Stack Developer specializing in Python, Java, and modern web applications.",
           "alternateName": [
             "Narala Manoj",
             "naralamanoj",
@@ -343,3 +347,4 @@ const About = () => {
 };
 
 export default About;
+
