@@ -20,7 +20,49 @@
     <image:image>
       <image:loc>https://tech4.in/narala-manoj-yadav.jpg</image:loc>
       <image:title>Narala Manoj Yadav - About Me</image:title>
-      <image:caption>About Narala Manoj Yadav - Background, Education, Technical Skills and Verified Profiles</image:caption>
+      <image:caption>About Narala Manoj Yadav - Background, Education at NBKRIST, Technical Skills and Verified Profiles</image:caption>
     </image:image>
+  </url>
+  <url>
+    <loc>https://tech4.in/projects</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tech4.in/projects/counseling-platform</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tech4.in/projects/uniform-detection-yolov8</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tech4.in/projects/student-library-portal</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tech4.in/projects/plant-disease-detection</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tech4.in/projects/restaurant-website</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tech4.in/projects/ai-community</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

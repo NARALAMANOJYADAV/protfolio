@@ -154,9 +154,9 @@ const About = () => {
                   Download Resume
                 </Button>
               </a>
-              <a href="/#projects">
+              <a href="/projects">
                 <Button variant="outline" className="rounded-full">
-                  Explore Projects
+                  Explore Projects &amp; Case Studies
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </a>

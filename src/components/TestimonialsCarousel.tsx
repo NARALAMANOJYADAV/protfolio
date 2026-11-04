@@ -1,6 +1,7 @@
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const ProjectsSection = () => {
@@ -9,6 +10,7 @@ const ProjectsSection = () => {
   const projects = [
     {
       title: 'Restaurant Website',
+      slug: 'restaurant-website',
       description: 'A modern, responsive restaurant website with advanced frontend development techniques, smooth animations, and intuitive UI/UX design.',
       tags: ['HTML', 'CSS', 'JavaScript', 'Frontend'],
       color: 'from-purple-500 to-pink-500',
@@ -17,6 +19,7 @@ const ProjectsSection = () => {
     },
     {
       title: 'Student Library Portal',
+      slug: 'student-library-portal',
       description: 'Academic year-based library system designed to be user-friendly for students. Built entirely with frontend technologies for seamless browsing.',
       tags: ['React', 'Frontend', 'UI/UX'],
       color: 'from-blue-500 to-cyan-500',
@@ -25,6 +28,7 @@ const ProjectsSection = () => {
     },
     {
       title: 'Student Counselling Page',
+      slug: 'counseling-platform',
       description: 'Full-stack counselling platform that saves students time with efficient scheduling. Built with both frontend and backend development.',
       tags: ['Full Stack', 'Flask', 'Python', 'Database'],
       color: 'from-emerald-500 to-teal-500',
@@ -93,18 +97,37 @@ const ProjectsSection = () => {
                     </Badge>
                   ))}
                 </div>
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline underline-offset-4 transition-all"
-                >
-                  View Live Project
-                  <ExternalLink className="h-3.5 w-3.5" />
-                </a>
+                <div className="flex items-center justify-between pt-2">
+                  <a
+                    href={`/projects/${project.slug}`}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline underline-offset-4"
+                  >
+                    Read Case Study
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </a>
+
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-all"
+                  >
+                    Live Demo
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                </div>
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        <div className="flex justify-center mt-12">
+          <a href="/projects">
+            <Button variant="outline" className="rounded-full px-8">
+              Explore All Projects &amp; Case Studies
+              <ArrowUpRight className="ml-2 h-4 w-4" />
+            </Button>
+          </a>
         </div>
       </div>
     </section>

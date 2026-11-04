@@ -16,3 +16,4 @@
   <rect width="64" height="64" rx="16" fill="url(#bg)" stroke="url(#grad)" stroke-width="2"/>
   <text x="32" y="41" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="url(#grad)" text-anchor="middle" letter-spacing="-0.5" filter="url(#glow)">MN</text>
 </svg>
+
