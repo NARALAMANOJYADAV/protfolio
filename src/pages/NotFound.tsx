@@ -9,6 +9,17 @@ const NotFound = () => {
       "404 Error: User attempted to access non-existent route:",
       location.pathname
     );
+    const meta = document.createElement("meta");
+    meta.name = "robots";
+    meta.content = "noindex, nofollow";
+    document.head.appendChild(meta);
+    return () => {
+      try {
+        document.head.removeChild(meta);
+      } catch {
+        // ignore
+      }
+    };
   }, [location.pathname]);
 
   return (

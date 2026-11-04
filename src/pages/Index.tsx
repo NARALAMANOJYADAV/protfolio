@@ -202,19 +202,23 @@ const Index = () => {
               <div>
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
                   I'm{' '}
-                  <span className="text-gradient">Narala</span>
+                  <span className="text-gradient">Narala Manoj</span>
                   <br />
-                  <span className="text-gradient">Manoj</span>
+                  <span className="text-gradient">Yadav</span>
                 </h1>
                 <TypingAnimation />
               </div>
 
               <p className="text-base text-muted-foreground leading-relaxed max-w-lg">
-                A passionate third-year student bridging complex data analytics and scalable web solutions.
-                Building intelligent automation with Python, Java, and Full-Stack development.
+                A passionate AI &amp; Data Science engineer and Full-Stack Developer bridging complex machine learning models, intelligent automation, and scalable web solutions with Python, Java, and modern frameworks.
               </p>
 
               <div className="flex flex-wrap gap-3">
+                <a href="/about">
+                  <Button variant="outline" className="rounded-full px-6">
+                    About Me
+                  </Button>
+                </a>
                 <a href="mailto:manojnarala245@gmail.com">
                   <Button className="bg-gradient-primary text-primary-foreground rounded-full hover:opacity-90 transition-opacity px-6 shadow-lg shadow-primary/25">
                     Get In Touch
@@ -227,19 +231,19 @@ const Index = () => {
                     Resume
                   </Button>
                 </a>
-                <a href="https://github.com/NARALAMANOJYADAV?tab=repositories" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/NARALAMANOJYADAV?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile (NARALAMANOJYADAV)">
                   <Button variant="outline" className="rounded-full px-6">
                     <Github className="mr-2 h-4 w-4" />
                     GitHub (Main)
                   </Button>
                 </a>
-                <a href="https://github.com/naralamanoj" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/naralamanoj" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile (naralamanoj)">
                   <Button variant="outline" className="rounded-full px-6">
                     <Github className="mr-2 h-4 w-4" />
                     GitHub (Alt)
                   </Button>
                 </a>
-                <a href="https://www.linkedin.com/in/narala-manoj" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/narala-manoj" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
                   <Button variant="outline" className="rounded-full px-6">
                     <Linkedin className="mr-2 h-4 w-4" />
                     LinkedIn
@@ -255,8 +259,11 @@ const Index = () => {
                 <div className="relative w-80 h-80 rounded-full p-1.5 bg-gradient-to-br from-primary via-accent to-primary shadow-2xl shadow-primary/20 group-hover:shadow-primary/40 transition-all duration-500">
                   <div className="w-full h-full rounded-full overflow-hidden border-4 border-background">
                     <img
-                      src="/manoj-profile.jpg"
-                      alt="Narala Manoj"
+                      src="/narala-manoj-yadav.jpg"
+                      alt="Narala Manoj Yadav - AI & Data Science Engineer and Full Stack Developer"
+                      width="320"
+                      height="320"
+                      loading="eager"
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>
@@ -293,21 +300,24 @@ const Index = () => {
       <footer className="px-6 py-8 border-t border-border">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
           <span className="text-sm font-bold">
-            <span className="text-gradient">MN</span>
-            <span className="text-muted-foreground ml-1 font-mono text-xs">/ narala manoj</span>
+            <span className="text-gradient">NMY</span>
+            <span className="text-muted-foreground ml-1 font-mono text-xs">/ narala manoj yadav</span>
           </span>
           <div className="flex items-center gap-4">
-            <a href="https://github.com/NARALAMANOJYADAV" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a href="https://github.com/NARALAMANOJYADAV" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile (NARALAMANOJYADAV)" className="text-muted-foreground hover:text-foreground transition-colors">
               <Github className="h-4 w-4" />
             </a>
-            <a href="https://www.linkedin.com/in/narala-manoj" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a href="https://github.com/naralamanoj" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile (naralamanoj)" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Github className="h-4 w-4" />
+            </a>
+            <a href="https://www.linkedin.com/in/narala-manoj" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" className="text-muted-foreground hover:text-foreground transition-colors">
               <Linkedin className="h-4 w-4" />
             </a>
-            <a href="mailto:manojnarala245@gmail.com" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a href="mailto:manojnarala245@gmail.com" aria-label="Email Narala Manoj Yadav" className="text-muted-foreground hover:text-foreground transition-colors">
               <Mail className="h-4 w-4" />
             </a>
           </div>
-          <p className="text-xs text-muted-foreground">© 2026 Narala Manoj</p>
+          <p className="text-xs text-muted-foreground">© 2026 Narala Manoj Yadav. All rights reserved.</p>
         </div>
       </footer>
     </div>

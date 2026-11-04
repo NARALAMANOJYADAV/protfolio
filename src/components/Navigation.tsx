@@ -14,12 +14,12 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'All Repos', href: '#all-projects' },
-    { name: 'Certificates', href: '#certificates' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'About', href: '/about' },
+    { name: 'Skills', href: '/#skills' },
+    { name: 'Projects', href: '/#projects' },
+    { name: 'All Repos', href: '/#all-projects' },
+    { name: 'Certificates', href: '/#certificates' },
+    { name: 'Contact', href: '/#contact' },
   ];
 
   return (
@@ -28,9 +28,9 @@ const Navigation = () => {
     }`}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="text-xl font-bold tracking-tight">
-            <span className="text-gradient">MN</span>
-            <span className="text-foreground ml-1 text-sm font-mono opacity-60">/ manoj</span>
+          <a href="/" className="text-xl font-bold tracking-tight" aria-label="Narala Manoj Yadav - Homepage">
+            <span className="text-gradient">NMY</span>
+            <span className="text-foreground ml-1 text-sm font-mono opacity-60">/ narala manoj yadav</span>
           </a>
 
           <div className="hidden md:flex items-center gap-1">
