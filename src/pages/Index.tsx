@@ -461,42 +461,4 @@ const Index = () => {
   );
 };
 
-      <StatsSection />
-      <SkillsSection />
-      <ProjectsSection />
-      <AllProjectsSection />
-      <InternshipsSection />
-      <CertificatesSection />
-      <AchievementsSection />
-      <StrengthsSection />
-      <ContactSection />
-
-      {/* Footer */}
-      <footer className="px-6 py-8 border-t border-border">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-          <span className="text-sm font-bold">
-            <span className="text-gradient">NMY</span>
-            <span className="text-muted-foreground ml-1 font-mono text-xs">/ narala manoj yadav</span>
-          </span>
-          <div className="flex items-center gap-4">
-            <a href="https://github.com/NARALAMANOJYADAV" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile (NARALAMANOJYADAV)" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Github className="h-4 w-4" />
-            </a>
-            <a href="https://github.com/naralamanoj" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile (naralamanoj)" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Github className="h-4 w-4" />
-            </a>
-            <a href="https://www.linkedin.com/in/narala-manoj" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Linkedin className="h-4 w-4" />
-            </a>
-            <a href="mailto:manojnarala245@gmail.com" aria-label="Email Narala Manoj Yadav" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Mail className="h-4 w-4" />
-            </a>
-          </div>
-          <p className="text-xs text-muted-foreground">© 2026 Narala Manoj Yadav. All rights reserved.</p>
-        </div>
-      </footer>
-    </div>
-  );
-};
-
 export default Index;
