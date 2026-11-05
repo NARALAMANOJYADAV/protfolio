@@ -3,6 +3,8 @@ import {
   ArrowLeft, 
   ArrowRight, 
   Github, 
+  Linkedin,
+  Mail,
   ExternalLink, 
   Code2, 
   Sparkles, 

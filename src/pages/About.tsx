@@ -16,6 +16,7 @@ import {
   CheckCircle2, 
   Bot, 
   Cpu,
+  Brain,
   Layers,
   GraduationCap,
   Calendar,
