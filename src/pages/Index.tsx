@@ -203,358 +203,263 @@ const ContactSection = () => {
   );
 };
 
-const Index = () => {
+const MishunovHero = () => {
   const [avatarMode, setAvatarMode] = useState<'3d' | 'photo'>('3d');
-  const [activePillar, setActivePillar] = useState<'ai' | 'fullstack' | 'systems' | 'available'>('ai');
 
-  const pillars = [
-    {
-      id: 'ai' as const,
-      title: 'AI & Machine Learning',
-      badge: 'Core Focus',
-      icon: Brain,
-      color: 'from-purple-500/20 to-indigo-500/10 border-purple-500/40 text-purple-400',
-      activeRing: 'border-purple-500 shadow-purple-500/20',
-      description: 'Designing custom deep learning architectures, object detection pipelines (YOLOv8), computer vision, and intelligent predictive data systems.',
-      tags: ['YOLOv8', 'PyTorch', 'Computer Vision', 'Deep Learning', 'Flask API', 'Model Training'],
-      link: '#projects',
-      linkText: 'Explore AI Projects'
-    },
-    {
-      id: 'fullstack' as const,
-      title: 'Full-Stack Engineering',
-      badge: 'Web & Systems',
-      icon: Code2,
-      color: 'from-cyan-500/20 to-blue-500/10 border-cyan-500/40 text-cyan-400',
-      activeRing: 'border-cyan-500 shadow-cyan-500/20',
-      description: 'Building end-to-end responsive web applications with React, modern TypeScript, Python backends (Django, Flask), and robust databases.',
-      tags: ['React', 'TypeScript', 'Django', 'Flask', 'PostgreSQL', 'Tailwind CSS', 'RESTful APIs'],
-      link: '#projects',
-      linkText: 'View Web Apps'
-    },
-    {
-      id: 'systems' as const,
-      title: 'Software & Data Science',
-      badge: 'Foundations',
-      icon: Cpu,
-      color: 'from-amber-500/20 to-orange-500/10 border-amber-500/40 text-amber-400',
-      activeRing: 'border-amber-500 shadow-amber-500/20',
-      description: 'Strong foundation in Data Structures & Algorithms, Java OOP, high-performance data processing, model evaluation, and backend architectures.',
-      tags: ['Java', 'Python', 'Data Structures & Algorithms', 'Pandas & NumPy', 'Linux', 'Git & CI/CD'],
-      link: '#skills',
-      linkText: 'View Technical Skills'
-    },
-    {
-      id: 'available' as const,
-      title: 'Available for Roles (2026)',
-      badge: 'Open to Work',
-      icon: Sparkles,
-      color: 'from-emerald-500/20 to-teal-500/10 border-emerald-500/40 text-emerald-400',
-      activeRing: 'border-emerald-500 shadow-emerald-500/20',
-      description: 'Actively seeking Software Engineer, AI/ML, and Full-Stack Developer internships and full-time opportunities. Fast learner and collaborative team player.',
-      tags: ['Internships', 'Full-Time Positions', 'On-Site & Remote', 'Immediate Joiner'],
-      link: '#contact',
-      linkText: 'Connect With Me'
-    }
-  ];
+  return (
+    <section 
+      id="frontpage" 
+      className="relative w-full min-h-screen flex flex-col justify-between items-center px-4 sm:px-8 py-6 select-none overflow-hidden text-[#111]"
+      style={{ backgroundColor: '#FFE01B' }}
+    >
+      {/* Top Banner / Heading (Denys Mishunov style) */}
+      <header className="w-full max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 pt-3 sm:pt-4 z-20">
+        <div className="text-center sm:text-left">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#111] uppercase leading-none font-sans drop-shadow-sm">
+            Narala Manoj Yadav
+          </h1>
+          <p className="text-xs sm:text-sm font-mono tracking-widest text-[#222] uppercase mt-2 font-bold flex items-center justify-center sm:justify-start gap-2">
+            <span>Developer</span>
+            <span>•</span>
+            <span>AI &amp; Data Science</span>
+            <span>•</span>
+            <span>Problem Solver</span>
+          </p>
+        </div>
 
-  const currentPillar = pillars.find(p => p.id === activePillar) || pillars[0];
+        {/* 3D / Real Photo Switcher */}
+        <div className="flex items-center gap-1 p-1 rounded-full bg-black/10 backdrop-blur-md border border-black/15 shadow-sm">
+          <button
+            type="button"
+            onClick={() => setAvatarMode('3d')}
+            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
+              avatarMode === '3d'
+                ? 'bg-[#111] text-[#FFE01B] shadow-sm'
+                : 'text-[#222] hover:text-black'
+            }`}
+          >
+            ✨ 3D Character
+          </button>
+          <button
+            type="button"
+            onClick={() => setAvatarMode('photo')}
+            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
+              avatarMode === 'photo'
+                ? 'bg-[#111] text-[#FFE01B] shadow-sm'
+                : 'text-[#222] hover:text-black'
+            }`}
+          >
+            📷 Real Photo
+          </button>
+        </div>
+      </header>
 
+      {/* Center Stage: Character + Navigation Stripes (Exact Mishunov Layout) */}
+      <div className="relative w-full max-w-6xl mx-auto flex-1 flex flex-col lg:flex-row items-center justify-center my-auto py-4 z-10">
+        
+        {/* Character in Center */}
+        <div className="relative flex flex-col items-center justify-end h-[46vh] sm:h-[52vh] lg:h-[60vh] max-h-[560px]">
+          {/* Speech Bubble */}
+          <div className="absolute -top-3 sm:-top-5 z-20 px-4 py-1.5 rounded-full bg-[#111] text-white text-xs sm:text-sm font-bold shadow-xl animate-float flex items-center gap-1.5 border border-white/10">
+            <span>Hi, I'm Manoj!</span>
+            <span className="text-[#FFE01B]">👋</span>
+            <span className="text-white/70 font-mono text-[11px] hidden sm:inline ml-1">(naralamanojyadav)</span>
+          </div>
+
+          {avatarMode === '3d' ? (
+            <picture className="h-full flex items-end">
+              <source srcSet="/narala-manoj-transparent.webp" type="image/webp" />
+              <img
+                src="/narala-manoj-transparent.png"
+                alt="Narala Manoj Yadav - 3D Character (AI & Full-Stack Developer)"
+                className="h-full max-h-[560px] w-auto object-contain object-bottom drop-shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+                loading="eager"
+              />
+            </picture>
+          ) : (
+            <div className="h-full max-h-[500px] aspect-[3/4] rounded-3xl overflow-hidden border-4 border-[#111] shadow-2xl">
+              <img
+                src="/narala-manoj-yadav.jpg"
+                alt="Narala Manoj Yadav - Professional Portrait"
+                className="w-full h-full object-cover object-top"
+                loading="eager"
+              />
+            </div>
+          )}
+        </div>
+
+        {/* 4 Mishunov Navigation Stripes */}
+        <div className="w-full lg:w-auto lg:absolute lg:right-4 xl:right-8 flex flex-col gap-2.5 sm:gap-3 mt-4 lg:mt-0 z-20 max-w-md lg:max-w-none">
+          <a
+            href="#projects"
+            className="group flex items-center justify-between gap-6 px-6 py-3.5 rounded-2xl bg-[#E3170A] text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 font-bold text-sm sm:text-base border-2 border-black/10"
+          >
+            <div className="flex items-center gap-2.5">
+              <span className="text-lg">🛠️</span>
+              <span>Working</span>
+            </div>
+            <span className="text-xs font-mono uppercase bg-white/20 px-2.5 py-0.5 rounded-full group-hover:bg-white group-hover:text-[#E3170A] transition-colors">
+              Projects &amp; Apps &rarr;
+            </span>
+          </a>
+
+          <a
+            href="#skills"
+            className="group flex items-center justify-between gap-6 px-6 py-3.5 rounded-2xl bg-[#2EC4B6] text-[#05383B] shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 font-bold text-sm sm:text-base border-2 border-black/10"
+          >
+            <div className="flex items-center gap-2.5">
+              <span className="text-lg">🧠</span>
+              <span>AI &amp; Data Science</span>
+            </div>
+            <span className="text-xs font-mono uppercase bg-black/10 px-2.5 py-0.5 rounded-full group-hover:bg-[#05383B] group-hover:text-white transition-colors">
+              YOLOv8 &amp; ML &rarr;
+            </span>
+          </a>
+
+          <a
+            href="/about"
+            className="group flex items-center justify-between gap-6 px-6 py-3.5 rounded-2xl bg-[#FFF3B0] text-[#4A3E00] shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 font-bold text-sm sm:text-base border-2 border-black/10"
+          >
+            <div className="flex items-center gap-2.5">
+              <span className="text-lg">🎓</span>
+              <span>About Me</span>
+            </div>
+            <span className="text-xs font-mono uppercase bg-black/10 px-2.5 py-0.5 rounded-full group-hover:bg-[#4A3E00] group-hover:text-[#FFF3B0] transition-colors">
+              Bio &amp; NBKRIST &rarr;
+            </span>
+          </a>
+
+          <a
+            href="#contact"
+            className="group flex items-center justify-between gap-6 px-6 py-3.5 rounded-2xl bg-[#2C1D2F] text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 font-bold text-sm sm:text-base border-2 border-black/10"
+          >
+            <div className="flex items-center gap-2.5">
+              <span className="text-lg">📬</span>
+              <span>Not-Working / Contact</span>
+            </div>
+            <span className="text-xs font-mono uppercase bg-white/20 px-2.5 py-0.5 rounded-full group-hover:bg-white group-hover:text-[#2C1D2F] transition-colors">
+              Let's Connect &rarr;
+            </span>
+          </a>
+        </div>
+      </div>
+
+      {/* Bottom Dock / Contacts (Exact Mishunov footer) */}
+      <footer className="w-full max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 pb-2 sm:pb-3 z-20">
+        {/* Social Link Badges */}
+        <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+          <a
+            href="https://www.linkedin.com/in/narala-manoj"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/85 hover:bg-black text-white text-xs font-bold transition-all shadow-md hover:scale-105"
+          >
+            <Linkedin className="h-3.5 w-3.5 text-[#0A66C2]" />
+            <span>LinkedIn</span>
+            <span className="text-[10px] text-white/60 hidden sm:inline">• Professional</span>
+          </a>
+
+          <a
+            href="https://github.com/NARALAMANOJYADAV"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/85 hover:bg-black text-white text-xs font-bold transition-all shadow-md hover:scale-105"
+          >
+            <Github className="h-3.5 w-3.5" />
+            <span>GitHub (Main)</span>
+            <span className="text-[10px] text-white/60 hidden sm:inline">• Code</span>
+          </a>
+
+          <a
+            href="https://github.com/naralamanoj"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/85 hover:bg-black text-white text-xs font-bold transition-all shadow-md hover:scale-105"
+          >
+            <Github className="h-3.5 w-3.5" />
+            <span>GitHub (Alt)</span>
+          </a>
+
+          <a
+            href="/NARALA-MANOJ-Resume.pdf"
+            download
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/85 hover:bg-black text-white text-xs font-bold transition-all shadow-md hover:scale-105"
+          >
+            <Download className="h-3.5 w-3.5 text-[#FFE01B]" />
+            <span>Resume</span>
+          </a>
+
+          <a
+            href="mailto:manojnarala245@gmail.com"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/85 hover:bg-black text-white text-xs font-bold transition-all shadow-md hover:scale-105"
+          >
+            <Mail className="h-3.5 w-3.5 text-[#FFE01B]" />
+            <span>Email</span>
+            <span className="text-[10px] text-white/60 hidden sm:inline">• Let's talk :)</span>
+          </a>
+        </div>
+
+        {/* Scroll Prompt */}
+        <a
+          href="#about-section"
+          className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-black text-[#FFE01B] text-xs font-bold font-mono shadow-md hover:bg-black/80 transition-all animate-bounce"
+        >
+          <span>Scroll for Full Portfolio</span>
+          <ArrowDown className="h-3.5 w-3.5" />
+        </a>
+      </footer>
+    </section>
+  );
+};
+
+const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
 
-      {/* Hero Section - Inspired by Creative Developer Aesthetics & 3D Character Presentation */}
-      <section id="about" className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 pt-24 pb-16 overflow-hidden">
-        {/* Ambient Glow Backdrops */}
-        <div className="absolute top-16 -left-32 w-96 h-96 rounded-full bg-primary/15 blur-[120px] pointer-events-none" />
-        <div className="absolute top-1/3 -right-32 w-96 h-96 rounded-full bg-accent/15 blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-10 left-1/3 w-80 h-80 rounded-full bg-purple-500/10 blur-[100px] pointer-events-none" />
+      {/* Mishunov-Style Signature Landing Page Screen */}
+      <MishunovHero />
 
-        <div className="max-w-6xl mx-auto w-full relative z-10">
-          {/* Main Grid: Left Intro + Right 3D Avatar */}
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            
-            {/* Left Content Column */}
-            <div className="lg:col-span-7 space-y-6 sm:space-y-8 animate-fade-in">
-              <div className="flex flex-wrap items-center gap-2.5">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-md">
-                  <Sparkles className="h-3.5 w-3.5 text-primary" />
-                  <span className="text-xs font-mono text-primary font-medium">B.Tech in Artificial Intelligence &amp; Data Science</span>
-                </div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 text-xs font-mono">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>Available for 2026 Roles</span>
-                </div>
-              </div>
+      {/* Detailed Portfolio Sections Below */}
+      <div id="about-section">
+        <StatsSection />
+        <SkillsSection />
+        <ProjectsSection />
+        <AllProjectsSection />
+        <InternshipsSection />
+        <CertificatesSection />
+        <AchievementsSection />
+        <StrengthsSection />
+        <ContactSection />
+      </div>
 
-              <div>
-                <p className="text-sm font-mono text-primary font-semibold tracking-wider uppercase mb-2">
-                  Official Portfolio / Personal Identity
-                </p>
-                <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.08]">
-                  I'm{' '}
-                  <span className="text-gradient">Narala Manoj</span>
-                  <br />
-                  <span className="text-gradient">Yadav</span>
-                </h1>
-                <TypingAnimation />
-              </div>
-
-              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-xl">
-                I'm <strong className="text-foreground font-semibold">Narala Manoj Yadav</strong> (<span className="text-primary font-mono text-sm">naralamanojyadav</span> / <span className="text-primary font-mono text-sm">naralamanoj</span>) — an AI &amp; Data Science engineer and Full-Stack Developer bridging state-of-the-art computer vision models (YOLOv8), predictive machine learning pipelines, and modern reactive web applications with Python, Java, and React.
-              </p>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap gap-3 pt-2">
-                <a href="#projects">
-                  <Button className="bg-gradient-primary text-primary-foreground rounded-full hover:opacity-90 transition-opacity px-6 shadow-lg shadow-primary/25 h-11">
-                    Explore Projects
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </a>
-                <a href="/about">
-                  <Button variant="outline" className="rounded-full px-6 h-11 border-border hover:border-primary/40">
-                    About Me
-                  </Button>
-                </a>
-                <a href="/NARALA-MANOJ-Resume.pdf" download>
-                  <Button variant="outline" className="rounded-full px-5 h-11 border-border hover:border-primary/40">
-                    <Download className="mr-2 h-4 w-4" />
-                    Resume
-                  </Button>
-                </a>
-                <a href="mailto:manojnarala245@gmail.com">
-                  <Button variant="outline" className="rounded-full px-5 h-11 border-border hover:border-primary/40">
-                    <Mail className="mr-2 h-4 w-4 text-primary" />
-                    Contact
-                  </Button>
-                </a>
-              </div>
-
-              {/* Social Channels Pill Bar */}
-              <div className="flex flex-wrap items-center gap-2 pt-1 text-xs text-muted-foreground">
-                <span className="font-mono text-xs text-muted-foreground mr-1">Verified:</span>
-                <a 
-                  href="https://github.com/NARALAMANOJYADAV" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card border border-border hover:border-primary/40 hover:text-foreground transition-all"
-                >
-                  <Github className="h-3.5 w-3.5 text-foreground" />
-                  <span>GitHub (Main)</span>
-                </a>
-                <a 
-                  href="https://github.com/naralamanoj" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card border border-border hover:border-primary/40 hover:text-foreground transition-all"
-                >
-                  <Github className="h-3.5 w-3.5 text-foreground" />
-                  <span>GitHub (Alt)</span>
-                </a>
-                <a 
-                  href="https://www.linkedin.com/in/narala-manoj" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card border border-border hover:border-primary/40 hover:text-foreground transition-all"
-                >
-                  <Linkedin className="h-3.5 w-3.5 text-[#0A66C2]" />
-                  <span>LinkedIn</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Right Column: 3D Character Presentation Showcase */}
-            <div className="lg:col-span-5 flex justify-center animate-fade-in relative pt-4 sm:pt-0">
-              <div className="relative w-full max-w-[340px] sm:max-w-[380px]">
-                
-                {/* Ambient Halo & Studio Glow matching 3D render */}
-                <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-cyan-500/25 via-primary/30 to-purple-600/25 blur-2xl animate-pulse-glow pointer-events-none" />
-
-                {/* Main Card Frame */}
-                <div className="relative rounded-3xl p-2.5 sm:p-3 bg-gradient-to-b from-card via-card/90 to-background border-2 border-primary/30 shadow-2xl shadow-primary/20 backdrop-blur-xl group">
-                  
-                  {/* View Mode Switcher Pill */}
-                  <div className="absolute top-5 right-5 z-20 flex items-center gap-1 p-1 rounded-full bg-background/85 backdrop-blur-md border border-border/80 shadow-md">
-                    <button
-                      type="button"
-                      onClick={() => setAvatarMode('3d')}
-                      className={`px-3 py-1 rounded-full text-xs font-semibold transition-all ${
-                        avatarMode === '3d'
-                          ? 'bg-gradient-primary text-white shadow-sm'
-                          : 'text-muted-foreground hover:text-foreground'
-                      }`}
-                    >
-                      ✨ 3D
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setAvatarMode('photo')}
-                      className={`px-3 py-1 rounded-full text-xs font-semibold transition-all ${
-                        avatarMode === 'photo'
-                          ? 'bg-gradient-primary text-white shadow-sm'
-                          : 'text-muted-foreground hover:text-foreground'
-                      }`}
-                    >
-                      📷 Photo
-                    </button>
-                  </div>
-
-                  {/* Character Visual Container */}
-                  <div className="w-full aspect-[3/4] rounded-2xl overflow-hidden bg-card/60 relative border border-border/60 shadow-inner">
-                    {avatarMode === '3d' ? (
-                      <picture>
-                        <source srcSet="/narala-manoj-3d.webp" type="image/webp" />
-                        <img
-                          src="/narala-manoj-3d.png"
-                          alt="Narala Manoj Yadav - 3D Character Avatar (AI & Full Stack Developer)"
-                          width="704"
-                          height="938"
-                          className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                          loading="eager"
-                        />
-                      </picture>
-                    ) : (
-                      <img
-                        src="/narala-manoj-yadav.jpg"
-                        alt="Narala Manoj Yadav - Professional Portrait"
-                        width="704"
-                        height="772"
-                        className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                        loading="eager"
-                      />
-                    )}
-
-                    {/* Gradient Fade at base */}
-                    <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-background via-background/60 to-transparent pointer-events-none" />
-
-                    {/* Bottom Status & Verified Tag inside Card */}
-                    <div className="absolute bottom-3 inset-x-3 p-3 rounded-xl bg-background/85 backdrop-blur-md border border-border/70 flex items-center justify-between shadow-lg">
-                      <div className="space-y-0.5">
-                        <div className="flex items-center gap-1.5">
-                          <span className="font-bold text-xs text-foreground">Narala Manoj Yadav</span>
-                          <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary" />
-                        </div>
-                        <p className="text-[11px] font-mono text-muted-foreground">@naralamanojyadav</p>
-                      </div>
-                      <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-500 text-[11px] font-mono font-medium">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                        <span>Ready</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Floating Badges around Avatar (Desktop & Tablet) */}
-                  <div className="hidden sm:flex absolute -top-4 -left-6 z-10 items-center gap-2 px-3 py-1.5 rounded-xl bg-card/95 backdrop-blur-md border border-purple-500/40 shadow-xl animate-float">
-                    <Brain className="h-4 w-4 text-purple-400" />
-                    <span className="text-xs font-semibold text-foreground">AI &amp; Deep Learning</span>
-                  </div>
-
-                  <div className="hidden sm:flex absolute top-14 -right-6 z-10 items-center gap-2 px-3 py-1.5 rounded-xl bg-card/95 backdrop-blur-md border border-cyan-500/40 shadow-xl animate-float-delayed">
-                    <Code2 className="h-4 w-4 text-cyan-400" />
-                    <span className="text-xs font-semibold text-foreground">React &amp; Full-Stack</span>
-                  </div>
-
-                  <div className="hidden sm:flex absolute bottom-24 -left-8 z-10 items-center gap-2 px-3 py-1.5 rounded-xl bg-card/95 backdrop-blur-md border border-amber-500/40 shadow-xl animate-float-slow">
-                    <Bot className="h-4 w-4 text-amber-400" />
-                    <span className="text-xs font-semibold text-foreground">Python &amp; YOLOv8</span>
-                  </div>
-
-                  <div className="hidden sm:flex absolute -bottom-3 -right-4 z-10 items-center gap-2 px-3 py-1.5 rounded-xl bg-card/95 backdrop-blur-md border border-emerald-500/40 shadow-xl animate-float">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-                    <span className="text-xs font-semibold text-foreground">Java &amp; Algorithms</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Mishunov-inspired Interactive Pillars Bar */}
-          <div className="mt-16 pt-10 border-t border-border/60">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
-              <div>
-                <p className="text-xs font-mono text-primary tracking-wider uppercase font-semibold">Specializations &amp; Pillars</p>
-                <h2 className="text-2xl sm:text-3xl font-bold text-foreground">What I Specialize In &amp; Build</h2>
-              </div>
-              <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground bg-muted/50 px-3 py-1 rounded-full border border-border">
-                <span>Select a domain to inspect:</span>
-              </div>
-            </div>
-
-            {/* 4 Interactive Pillar Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
-              {pillars.map((pillar) => {
-                const Icon = pillar.icon;
-                const isActive = activePillar === pillar.id;
-                return (
-                  <button
-                    key={pillar.id}
-                    type="button"
-                    onClick={() => setActivePillar(pillar.id)}
-                    className={`text-left p-5 rounded-2xl border transition-all duration-300 relative overflow-hidden group ${
-                      isActive
-                        ? `bg-gradient-to-br ${pillar.color} shadow-lg ${pillar.activeRing} scale-[1.02]`
-                        : 'bg-card border-border hover:border-primary/40 hover:bg-muted/40'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between mb-3">
-                      <div className={`p-2 rounded-xl ${isActive ? 'bg-background/80 shadow-sm' : 'bg-muted'}`}>
-                        <Icon className={`h-5 w-5 ${isActive ? 'text-primary' : 'text-muted-foreground group-hover:text-primary transition-colors'}`} />
-                      </div>
-                      <Badge variant="outline" className="text-[10px] font-mono px-2 py-0.5 border-border/80">
-                        {pillar.badge}
-                      </Badge>
-                    </div>
-                    <h3 className="font-bold text-base text-foreground mb-1.5 leading-snug">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-xs text-muted-foreground line-clamp-2 leading-relaxed">
-                      {pillar.description}
-                    </p>
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Active Pillar Detailed Spotlight Panel */}
-            <div className="mt-4 p-6 rounded-2xl bg-card border border-primary/20 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 transition-all duration-500">
-              <div className="space-y-2.5 max-w-2xl">
-                <div className="flex items-center gap-2.5">
-                  <currentPillar.icon className="h-5 w-5 text-primary" />
-                  <h4 className="font-bold text-lg sm:text-xl text-foreground">{currentPillar.title}</h4>
-                  <Badge variant="outline" className="text-xs font-mono">{currentPillar.badge}</Badge>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {currentPillar.description}
-                </p>
-                <div className="flex flex-wrap gap-2 pt-1">
-                  {currentPillar.tags.map(tag => (
-                    <Badge key={tag} variant="secondary" className="text-xs font-mono py-1 px-2.5">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <a href={currentPillar.link}>
-                  <Button className="bg-gradient-primary text-white rounded-full px-6 shadow-md hover:opacity-90">
-                    {currentPillar.linkText}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Scroll Down Indicator */}
-          <div className="flex justify-center mt-12 animate-bounce">
-            <a href="#skills" className="text-muted-foreground hover:text-foreground transition-colors p-2">
-              <ArrowDown className="h-5 w-5" />
+      {/* Footer */}
+      <footer className="px-6 py-8 border-t border-border">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+          <span className="text-sm font-bold">
+            <span className="text-gradient">NMY</span>
+            <span className="text-muted-foreground ml-1 font-mono text-xs">/ narala manoj yadav</span>
+          </span>
+          <div className="flex items-center gap-4">
+            <a href="https://github.com/NARALAMANOJYADAV" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile (NARALAMANOJYADAV)" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Github className="h-4 w-4" />
+            </a>
+            <a href="https://github.com/naralamanoj" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile (naralamanoj)" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Github className="h-4 w-4" />
+            </a>
+            <a href="https://www.linkedin.com/in/narala-manoj" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Linkedin className="h-4 w-4" />
+            </a>
+            <a href="mailto:manojnarala245@gmail.com" aria-label="Email Narala Manoj Yadav" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Mail className="h-4 w-4" />
             </a>
           </div>
+          <p className="text-xs text-muted-foreground">&copy; 2026 Narala Manoj Yadav. All rights reserved.</p>
         </div>
-      </section>
+      </footer>
+    </div>
+  );
+};
 
       <StatsSection />
       <SkillsSection />

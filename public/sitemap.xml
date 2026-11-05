@@ -7,6 +7,11 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
+      <image:loc>https://tech4.in/narala-manoj-transparent.png</image:loc>
+      <image:title>Narala Manoj Yadav - 3D Character Hero</image:title>
+      <image:caption>Narala Manoj Yadav - 3D Character Model, AI &amp; Full Stack Developer</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://tech4.in/narala-manoj-3d.png</image:loc>
       <image:title>Narala Manoj Yadav - 3D Character Avatar</image:title>
       <image:caption>Narala Manoj Yadav - 3D Character Avatar, AI &amp; Data Science Engineer and Full Stack Developer</image:caption>
