@@ -21,18 +21,21 @@ import {
   GraduationCap,
   Calendar,
   Briefcase,
-  ExternalLink
+  ExternalLink,
+  CreditCard,
+  FolderGit2
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import Navigation from '@/components/Navigation';
+import { DeveloperCards } from '@/components/DeveloperCards';
 
 const About = () => {
-  const [avatarMode, setAvatarMode] = useState<'3d' | 'photo'>('3d');
+  const [avatarMode, setAvatarMode] = useState<'3d' | 'photo'>('photo');
 
   useEffect(() => {
     const previousTitle = document.title;
-    document.title = "About Narala Manoj Yadav | AI & Data Science | Portfolio";
+    document.title = "About Narala Manoj Yadav | AI & Data Science | Official Portfolio";
 
     const canonical = document.querySelector('link[rel="canonical"]');
     const prevCanonical = canonical?.getAttribute('href');
@@ -56,15 +59,15 @@ const About = () => {
         "@id": "https://tech4.in/about#webpage",
         "url": "https://tech4.in/about",
         "name": "About Narala Manoj Yadav - AI & Data Science Engineer",
-        "description": "Biography, education, technical skills, and verified profiles of Narala Manoj Yadav (naralamanojyadav).",
+        "description": "Biography, education, technical skills, and verified identity cards of Narala Manoj Yadav (naralamanojyadav).",
         "dateCreated": "2026-06-10T18:10:36+05:30",
-        "dateModified": "2026-11-05T21:30:00+05:30",
+        "dateModified": "2026-11-05T22:30:00+05:30",
         "mainEntity": {
           "@type": "Person",
           "@id": "https://tech4.in/#person",
           "name": "Narala Manoj Yadav",
           "identifier": "naralamanojyadav",
-          "description": "B.Tech in Artificial Intelligence & Data Science at NBKRIST, Full Stack Developer specializing in Python, Java, and modern web applications.",
+          "description": "B.Tech in Artificial Intelligence & Data Science at NBKRIST, Full Stack Developer specializing in Python, Java, Machine Learning, and modern web applications.",
           "alternateName": [
             "Narala Manoj",
             "naralamanoj",
@@ -103,35 +106,70 @@ const About = () => {
       title: 'B.Tech in Artificial Intelligence & Data Science',
       institution: 'NBKR Institute of Science & Technology (NBKRIST)',
       location: 'Vidyanagar, Nellore, AP',
-      description: 'Focusing on Machine Learning, Deep Learning, Computer Vision (YOLOv8), Data Structures & Algorithms, and Distributed Web Architectures. Active participant in technical clubs and hackathons.',
+      description: 'Core focus on Machine Learning, Deep Learning, Computer Vision (YOLOv8), Data Structures & Algorithms, Database Management Systems, and Distributed Web Architectures. Active participant in technical symposiums and coding hackathons.',
       badge: 'Academic Foundation',
       icon: GraduationCap,
-      color: 'text-purple-400'
+      color: 'bg-[#FFCC00] text-black'
     },
     {
       period: '2024 - 2025',
       title: 'Full-Stack & AI Engineering Internships',
-      institution: 'Multiple Industry Engagements',
+      institution: 'Industry Engagements & Applied AI Work',
       location: 'Remote / Hybrid',
-      description: 'Built scalable backend microservices with Python (Flask/Django), automated computer vision pipelines with YOLOv8 for uniform and mask detection, and delivered responsive web frontends with React and TypeScript.',
+      description: 'Engineered scalable backend microservices with Python (Flask/Django), automated computer vision workflows using YOLOv8 for uniform and mask detection, and delivered responsive web frontends with React and TypeScript.',
       badge: 'Practical Experience',
       icon: Briefcase,
-      color: 'text-cyan-400'
+      color: 'bg-[#E3170A] text-white'
     },
     {
       period: '2023 - Present',
       title: 'Open-Source AI & Web Ecosystem',
       institution: 'GitHub (NARALAMANOJYADAV & naralamanoj)',
       location: 'Global',
-      description: 'Authored and published 25+ open-source repositories spanning AI chatbots, student counselling portals, restaurant management systems, and computer vision models.',
-      badge: 'Community & Code',
-      icon: Code2,
-      color: 'text-emerald-400'
+      description: 'Authored and published 25+ open-source repositories spanning AI chatbots, student counselling portals, restaurant management systems, and computer vision models. Actively maintaining clean documentation and modular code.',
+      badge: 'Open Source',
+      icon: Github,
+      color: 'bg-[#00A86B] text-white'
     }
   ];
 
+  const skillGroups = [
+    {
+      category: 'Artificial Intelligence & Vision',
+      icon: Brain,
+      color: 'border-[#E3170A] bg-[#FFF1F2]',
+      tagBg: 'bg-[#FFE4E6] text-[#9F1239] border-[#E3170A]/30',
+      skills: ['YOLOv8 Object Detection', 'Computer Vision (OpenCV)', 'Machine Learning (Scikit-Learn)', 'Deep Learning (PyTorch, CNN)', 'Natural Language Processing', 'Data Preprocessing & Pandas']
+    },
+    {
+      category: 'Full-Stack & Backend Systems',
+      icon: Cpu,
+      color: 'border-[#00A86B] bg-[#F0FDF4]',
+      tagBg: 'bg-[#DCFCE7] text-[#166534] border-[#00A86B]/30',
+      skills: ['Python (Flask, FastAPI)', 'Java & Object-Oriented Design', 'SQL & Relational Databases (MySQL, PostgreSQL)', 'RESTful API Architecture', 'Authentication & Session Handling', 'MVC Architecture']
+    },
+    {
+      category: 'Frontend Engineering & UI/UX',
+      icon: Layers,
+      color: 'border-[#3B82F6] bg-[#EFF6FF]',
+      tagBg: 'bg-[#DBEAFE] text-[#1E40AF] border-[#3B82F6]/30',
+      skills: ['React.js & Modern Hooks', 'TypeScript & JavaScript (ES6+)', 'Tailwind CSS & Styling', 'Responsive Mobile Design', 'Vite & Frontend Tooling', 'Web Performance & Accessibility']
+    },
+    {
+      category: 'Developer Tooling & DevOps',
+      icon: Code2,
+      color: 'border-[#8B5CF6] bg-[#F5F3FF]',
+      tagBg: 'bg-[#EDE9FE] text-[#5B21B6] border-[#8B5CF6]/30',
+      skills: ['Git Version Control & GitHub Actions', 'Postman API Testing', 'Linux Terminal & Shell Scripting', 'Render & Netlify Cloud Deployment', 'Schema.org JSON-LD Structured Data', 'SEO Optimization']
+    }
+  ];
+
+  const avatarSrc = avatarMode === 'photo' 
+    ? '/narala-manoj-yadav.jpg' 
+    : '/narala-manoj-transparent.png';
+
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-[#FFF8E7] text-[#18181B] font-sans selection:bg-[#FFCC00] selection:text-black">
       <Navigation />
 
       {/* JSON-LD ProfilePage Structured Data */}
@@ -141,471 +179,428 @@ const About = () => {
       />
 
       <main className="pt-28 pb-20 px-4 sm:px-6 max-w-6xl mx-auto">
-        {/* Navigation Breadcrumb */}
-        <div className="mb-8 flex items-center justify-between">
-          <a href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
+        
+        {/* Navigation Breadcrumb Bar */}
+        <div className="mb-8 flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm">
+          <a 
+            href="/" 
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border-2 border-black font-black text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-transform"
+          >
             <ArrowLeft className="h-4 w-4" />
-            Back to Home
+            <span>Back to Home</span>
           </a>
-          <a href="/projects" className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline">
-            View All Projects
-            <ArrowRight className="h-4 w-4" />
-          </a>
+
+          <div className="flex items-center gap-2">
+            <a 
+              href="#cards" 
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#FFCC00] border-2 border-black font-black text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-transform"
+            >
+              <CreditCard className="h-4 w-4" />
+              <span>Identity Cards</span>
+            </a>
+            <a 
+              href="/projects" 
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black text-[#FFCC00] border-2 border-black font-black text-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-transform"
+            >
+              <span>Explore Projects</span>
+              <ArrowRight className="h-4 w-4 text-[#FFCC00]" />
+            </a>
+          </div>
         </div>
 
-        {/* Hero Section: Avatar Card & Personal Story */}
-        <div className="grid lg:grid-cols-12 gap-10 items-start mb-20">
-          
-          {/* Left Column: Interactive Visual Showcase Card */}
-          <div className="lg:col-span-5 flex flex-col items-center">
-            <div className="relative w-full max-w-[340px]">
+        {/* =========================================================================
+            HERO DOSSIER: AVATAR & BIOGRAPHY
+            ========================================================================= */}
+        <section className="p-6 sm:p-10 rounded-3xl bg-white border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] mb-16">
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+            
+            {/* Left Column: Portrait & Identity Badges */}
+            <div className="lg:col-span-5 flex flex-col items-center">
               
-              {/* Halo Glow */}
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-cyan-500/20 via-primary/25 to-purple-600/20 blur-2xl pointer-events-none" />
+              {/* Photo Card with Switcher */}
+              <div className="relative w-full max-w-[340px]">
+                <div className="relative aspect-[3/4] rounded-3xl overflow-hidden border-4 border-black bg-[#FFCC00] shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                  <img
+                    src={avatarSrc}
+                    alt="Narala Manoj Yadav - Professional Portrait"
+                    className="w-full h-full object-cover object-top"
+                  />
 
-              {/* Showcase Frame */}
-              <div className="relative rounded-3xl p-3 bg-card border-2 border-primary/30 shadow-2xl shadow-primary/20 backdrop-blur-xl">
-                
-                {/* Switcher Pill */}
-                <div className="absolute top-5 right-5 z-20 flex items-center gap-1 p-1 rounded-full bg-background/90 backdrop-blur-md border border-border/80 shadow-md">
-                  <button
-                    type="button"
-                    onClick={() => setAvatarMode('3d')}
-                    className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
-                      avatarMode === '3d'
-                        ? 'bg-gradient-primary text-white shadow-sm'
-                        : 'text-muted-foreground hover:text-foreground'
-                    }`}
-                  >
-                    ✨ 3D
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setAvatarMode('photo')}
-                    className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
-                      avatarMode === 'photo'
-                        ? 'bg-gradient-primary text-white shadow-sm'
-                        : 'text-muted-foreground hover:text-foreground'
-                    }`}
-                  >
-                    📷 Photo
-                  </button>
-                </div>
+                  {/* Top Switcher Tag */}
+                  <div className="absolute top-3 right-3 flex items-center gap-1 p-1 rounded-full bg-black/90 border border-white/20">
+                    <button
+                      type="button"
+                      onClick={() => setAvatarMode('photo')}
+                      className={`px-2.5 py-1 rounded-full text-[10px] font-bold transition-all ${
+                        avatarMode === 'photo' ? 'bg-[#FFCC00] text-black' : 'text-white'
+                      }`}
+                    >
+                      Photo
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setAvatarMode('3d')}
+                      className={`px-2.5 py-1 rounded-full text-[10px] font-bold transition-all ${
+                        avatarMode === '3d' ? 'bg-[#FFCC00] text-black' : 'text-white'
+                      }`}
+                    >
+                      3D
+                    </button>
+                  </div>
 
-                {/* Avatar Image Frame */}
-                <div className="w-full aspect-[3/4] rounded-2xl overflow-hidden bg-card/60 relative border border-border/60 shadow-inner">
-                  {avatarMode === '3d' ? (
-                    <picture>
-                      <source srcSet="/narala-manoj-transparent.webp" type="image/webp" />
-                      <img
-                        src="/narala-manoj-transparent.png"
-                        alt="Narala Manoj Yadav - 3D Character Avatar (AI & Data Science Engineer)"
-                        width="704"
-                        height="938"
-                        className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
-                        loading="eager"
-                      />
-                    </picture>
-                  ) : (
-                    <img
-                      src="/narala-manoj-yadav.jpg"
-                      alt="Narala Manoj Yadav - Official Professional Portrait"
-                      width="704"
-                      height="772"
-                      className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
-                      loading="eager"
-                    />
-                  )}
-
-                  {/* Gradient bottom fade */}
-                  <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background via-background/60 to-transparent pointer-events-none" />
-
-                  {/* Verified Badge inside Card */}
-                  <div className="absolute bottom-3 inset-x-3 p-3 rounded-xl bg-background/90 backdrop-blur-md border border-border/80 flex items-center justify-between shadow-lg">
+                  {/* Bottom Identity Card Banner */}
+                  <div className="absolute bottom-3 inset-x-3 p-3 rounded-2xl bg-white border-2 border-black shadow-md flex items-center justify-between">
                     <div>
                       <div className="flex items-center gap-1.5">
-                        <span className="font-bold text-xs text-foreground">Narala Manoj Yadav</span>
-                        <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
+                        <span className="font-black text-xs text-black">Narala Manoj Yadav</span>
+                        <CheckCircle2 className="h-3.5 w-3.5 text-[#00A86B]" />
                       </div>
-                      <p className="text-[11px] font-mono text-muted-foreground">@naralamanojyadav</p>
+                      <p className="text-[10px] font-mono font-bold text-neutral-600">@naralamanojyadav</p>
                     </div>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400">
+                    <span className="text-[10px] font-mono font-black px-2 py-0.5 rounded-full bg-[#FFCC00] border border-black text-black">
                       NBKRIST 2026
                     </span>
                   </div>
                 </div>
+              </div>
 
-                {/* Floating Tech Badges */}
-                <div className="hidden sm:flex absolute -top-3 -left-4 z-10 items-center gap-1.5 px-3 py-1 rounded-xl bg-card/95 border border-purple-500/40 shadow-lg text-xs font-semibold text-purple-400">
-                  <Brain className="h-3.5 w-3.5" />
-                  <span>AI &amp; ML</span>
+              {/* Verified Contact Details Grid */}
+              <div className="w-full max-w-[340px] mt-6 space-y-2.5">
+                <div className="p-3 rounded-2xl bg-neutral-50 border-2 border-black flex items-center justify-between text-xs font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                  <span className="text-neutral-600 flex items-center gap-1.5">
+                    <MapPin className="h-3.5 w-3.5 text-[#E3170A]" /> Location:
+                  </span>
+                  <span className="text-black">Nellore, Andhra Pradesh, IN</span>
                 </div>
-                <div className="hidden sm:flex absolute top-12 -right-4 z-10 items-center gap-1.5 px-3 py-1 rounded-xl bg-card/95 border border-cyan-500/40 shadow-lg text-xs font-semibold text-cyan-400">
-                  <Code2 className="h-3.5 w-3.5" />
-                  <span>Full-Stack</span>
+                <div className="p-3 rounded-2xl bg-neutral-50 border-2 border-black flex items-center justify-between text-xs font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                  <span className="text-neutral-600 flex items-center gap-1.5">
+                    <Mail className="h-3.5 w-3.5 text-[#0077B5]" /> Email:
+                  </span>
+                  <a href="mailto:manojnarala245@gmail.com" className="font-mono text-black hover:text-[#E3170A] underline">
+                    manojnarala245@gmail.com
+                  </a>
+                </div>
+                <div className="p-3 rounded-2xl bg-neutral-50 border-2 border-black flex items-center justify-between text-xs font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                  <span className="text-neutral-600 flex items-center gap-1.5">
+                    <Phone className="h-3.5 w-3.5 text-[#00A86B]" /> Phone:
+                  </span>
+                  <a href="tel:+918106905004" className="font-mono text-black hover:text-[#00A86B]">
+                    +91 8106905004
+                  </a>
                 </div>
               </div>
             </div>
 
-            {/* Profile Meta Cards */}
-            <div className="w-full max-w-[340px] mt-6 space-y-3">
-              <div className="p-3.5 rounded-2xl bg-card border border-border/80 flex items-center justify-between text-xs">
-                <span className="text-muted-foreground flex items-center gap-1.5">
-                  <MapPin className="h-3.5 w-3.5 text-primary" /> Location:
+            {/* Right Column: Bio Narrative & Stats */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black text-[#FFCC00] font-black text-xs uppercase tracking-wider">
+                  <Sparkles className="h-3.5 w-3.5" />
+                  Engineering Dossier
                 </span>
-                <span className="font-semibold text-foreground">Nellore, Andhra Pradesh, IN</span>
+                <span className="text-xs font-mono font-bold text-neutral-600">ID: naralamanojyadav</span>
               </div>
-              <div className="p-3.5 rounded-2xl bg-card border border-border/80 flex items-center justify-between text-xs">
-                <span className="text-muted-foreground flex items-center gap-1.5">
-                  <Mail className="h-3.5 w-3.5 text-accent" /> Email:
-                </span>
-                <a href="mailto:manojnarala245@gmail.com" className="font-mono text-primary hover:underline">
-                  manojnarala245@gmail.com
-                </a>
+
+              <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-black leading-tight">
+                Engineering <span className="bg-[#FFCC00] px-2 py-0.5 rounded-lg border-2 border-black">AI &amp; Full-Stack</span> Systems
+              </h1>
+
+              <div className="space-y-4 text-base sm:text-lg text-neutral-800 leading-relaxed font-medium">
+                <p>
+                  I am <strong className="text-black font-black">Narala Manoj Yadav</strong> (<span className="font-mono text-xs font-bold bg-neutral-100 px-2 py-0.5 rounded border border-black/20">@naralamanojyadav</span>), an Artificial Intelligence &amp; Data Science engineer and Full-Stack Developer currently in my final years of B.Tech at <strong>NBKR Institute of Science &amp; Technology (NBKRIST)</strong>, Vidyanagar.
+                </p>
+                <p>
+                  My engineering philosophy focuses on bringing practical machine intelligence to production software. Rather than treating AI as an isolated model, I build end-to-end applications where deep learning models (such as YOLOv8 for edge computer vision) integrate seamlessly into performant backends (Python Flask, Java) and responsive user interfaces (React, TypeScript, Tailwind CSS).
+                </p>
+                <p>
+                  From streamlining academic student counseling with customized portals to training real-time vision algorithms for campus safety and uniform detection, every project I architect emphasizes clean code, relational schema integrity, and high responsiveness.
+                </p>
               </div>
-              <div className="p-3.5 rounded-2xl bg-card border border-border/80 flex items-center justify-between text-xs">
-                <span className="text-muted-foreground flex items-center gap-1.5">
-                  <Phone className="h-3.5 w-3.5 text-emerald-400" /> Phone:
-                </span>
-                <a href="tel:+918106905004" className="font-mono text-foreground hover:text-primary">
-                  +91 8106905004
-                </a>
+
+              {/* Metrics Highlights Bar */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 py-2">
+                <div className="p-4 rounded-2xl bg-[#FFF1F2] border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-center">
+                  <div className="text-3xl font-black text-[#E3170A]">10+</div>
+                  <div className="text-xs font-mono font-bold text-neutral-700 uppercase mt-0.5">Full Projects</div>
+                </div>
+                <div className="p-4 rounded-2xl bg-[#EFF6FF] border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-center">
+                  <div className="text-3xl font-black text-[#0077B5]">3+</div>
+                  <div className="text-xs font-mono font-bold text-neutral-700 uppercase mt-0.5">Internships</div>
+                </div>
+                <div className="p-4 rounded-2xl bg-[#F0FDF4] border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-center">
+                  <div className="text-3xl font-black text-[#00A86B]">25+</div>
+                  <div className="text-xs font-mono font-bold text-neutral-700 uppercase mt-0.5">Repositories</div>
+                </div>
+                <div className="p-4 rounded-2xl bg-[#FEF3C7] border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-center">
+                  <div className="text-3xl font-black text-black">2026</div>
+                  <div className="text-xs font-mono font-bold text-neutral-700 uppercase mt-0.5">B.Tech Batch</div>
+                </div>
               </div>
-            </div>
-          </div>
 
-          {/* Right Column: Detailed Biography & Engineering Philosophy */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="flex flex-wrap items-center gap-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
-                <Sparkles className="h-3.5 w-3.5 text-primary" />
-                <span className="text-xs font-mono text-primary font-semibold">About Narala Manoj Yadav</span>
-              </div>
-              <span className="text-xs font-mono text-muted-foreground">ID: naralamanojyadav</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
-              Bridging <span className="text-gradient">Intelligent AI</span> &amp; Modern <span className="text-gradient-accent">Web Systems</span>
-            </h1>
-
-            <div className="space-y-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
-              <p>
-                I am <strong className="text-foreground">Narala Manoj Yadav</strong> (<span className="text-primary font-mono text-sm">naralamanojyadav</span>), an Artificial Intelligence &amp; Data Science engineer and Full-Stack Developer currently pursuing my B.Tech at <strong>NBKR Institute of Science &amp; Technology (NBKRIST)</strong>.
-              </p>
-              <p>
-                My passion is solving real-world challenges with code. Over the past four years, I have architected solutions that span both ends of the technological spectrum — from computer vision object detection systems (YOLOv8) and machine learning classifiers to robust backend APIs in Python (Flask/Django) and interactive reactive interfaces in React and TypeScript.
-              </p>
-              <p>
-                I believe that impactful software combines mathematical rigor with thoughtful user experience. Whether training models on custom datasets, structuring database schemas, or polishing frontend micro-interactions, I focus on clean architecture, performance, and reliability.
-              </p>
-            </div>
-
-            {/* Quick Metrics Bar */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 py-2">
-              <div className="p-3.5 rounded-xl bg-card border border-border">
-                <div className="text-2xl font-bold text-gradient">10+</div>
-                <div className="text-xs font-mono text-muted-foreground">Full Projects</div>
-              </div>
-              <div className="p-3.5 rounded-xl bg-card border border-border">
-                <div className="text-2xl font-bold text-accent">3+</div>
-                <div className="text-xs font-mono text-muted-foreground">Internships</div>
-              </div>
-              <div className="p-3.5 rounded-xl bg-card border border-border">
-                <div className="text-2xl font-bold text-purple-400">25+</div>
-                <div className="text-xs font-mono text-muted-foreground">Repositories</div>
-              </div>
-              <div className="p-3.5 rounded-xl bg-card border border-border">
-                <div className="text-2xl font-bold text-emerald-400">2026</div>
-                <div className="text-xs font-mono text-muted-foreground">Graduation</div>
-              </div>
-            </div>
-
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-3 pt-2">
-              <a href="/NARALA-MANOJ-Resume.pdf" download>
-                <Button className="bg-gradient-primary text-primary-foreground rounded-full hover:opacity-90 px-6 font-semibold shadow-lg shadow-primary/25">
-                  <Download className="mr-2 h-4 w-4" />
-                  Download Resume
-                </Button>
-              </a>
-              <a href="/projects">
-                <Button variant="outline" className="rounded-full px-6 font-semibold bg-card border-border hover:border-primary/50">
-                  Explore Projects &amp; Case Studies
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </a>
-              <a href="mailto:manojnarala245@gmail.com">
-                <Button variant="ghost" className="rounded-full px-5 text-muted-foreground hover:text-foreground">
-                  <Mail className="mr-2 h-4 w-4 text-accent" />
-                  Contact Me
-                </Button>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Key Highlights Grid */}
-        <div className="grid sm:grid-cols-3 gap-6 mb-20">
-          <div className="p-6 rounded-2xl bg-card border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 shadow-xl shadow-purple-500/5 group">
-            <div className="p-3 rounded-xl bg-purple-500/15 text-purple-400 w-fit mb-4 group-hover:scale-110 transition-transform">
-              <BookOpen className="h-6 w-6" />
-            </div>
-            <div className="flex items-center gap-2 mb-1">
-              <h3 className="font-bold text-foreground text-lg">Education</h3>
-              <Badge variant="outline" className="text-[10px] font-mono border-purple-500/30 text-purple-400">2022-2026</Badge>
-            </div>
-            <p className="text-sm font-semibold text-foreground">B.Tech in AI &amp; Data Science</p>
-            <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
-              NBKR Institute of Science &amp; Technology (NBKRIST), Vidyanagar, Nellore. Rigorous training in algorithmic problem solving, machine learning theory, statistics, and system design.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-2xl bg-card border border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-300 shadow-xl shadow-cyan-500/5 group">
-            <div className="p-3 rounded-xl bg-cyan-500/15 text-cyan-400 w-fit mb-4 group-hover:scale-110 transition-transform">
-              <Trophy className="h-6 w-6" />
-            </div>
-            <div className="flex items-center gap-2 mb-1">
-              <h3 className="font-bold text-foreground text-lg">Recognition</h3>
-              <Badge variant="outline" className="text-[10px] font-mono border-cyan-500/30 text-cyan-400">Winner</Badge>
-            </div>
-            <p className="text-sm font-semibold text-foreground">Hackathons &amp; Competitions</p>
-            <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
-              Prize Winner at Narayana Engineering College Hackathon (Gudur) and AI Career Forge. Demonstrated rapid prototyping, team leadership, and innovative technical problem-solving.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-2xl bg-card border border-emerald-500/30 hover:border-emerald-500/60 transition-all duration-300 shadow-xl shadow-emerald-500/5 group">
-            <div className="p-3 rounded-xl bg-emerald-500/15 text-emerald-400 w-fit mb-4 group-hover:scale-110 transition-transform">
-              <Award className="h-6 w-6" />
-            </div>
-            <div className="flex items-center gap-2 mb-1">
-              <h3 className="font-bold text-foreground text-lg">Memberships</h3>
-              <Badge variant="outline" className="text-[10px] font-mono border-emerald-500/30 text-emerald-400">Active</Badge>
-            </div>
-            <p className="text-sm font-semibold text-foreground">IEEE &amp; ISTE Professional Bodies</p>
-            <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
-              Active student member of IEEE and Indian Society for Technical Education (ISTE). Regular participant in technical workshops, guest lectures, and student mentorship initiatives.
-            </p>
-          </div>
-        </div>
-
-        {/* Career & Academic Timeline */}
-        <div className="mb-20">
-          <div className="mb-10">
-            <p className="text-xs font-mono text-primary tracking-wider uppercase font-semibold mb-2">Milestones &amp; Journey</p>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground">Education &amp; Experience Timeline</h2>
-          </div>
-
-          <div className="space-y-6">
-            {timeline.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={index}
-                  className="p-6 sm:p-8 rounded-2xl bg-card border border-border/80 hover:border-primary/40 transition-all duration-300 flex flex-col md:flex-row md:items-start gap-6 group"
+              {/* Action Buttons */}
+              <div className="flex flex-wrap gap-3 pt-2">
+                <a 
+                  href="/NARALA-MANOJ-Resume.pdf" 
+                  download
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-black text-[#FFCC00] hover:bg-neutral-800 font-black text-xs tracking-wider uppercase border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-transform active:scale-95"
                 >
-                  <div className="p-3 rounded-xl bg-muted group-hover:bg-primary/10 transition-colors shrink-0">
-                    <Icon className={`h-6 w-6 ${item.color}`} />
+                  <Download className="h-4 w-4" />
+                  <span>Download Resume PDF</span>
+                </a>
+
+                <a 
+                  href="/projects"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black hover:bg-neutral-100 font-black text-xs tracking-wider uppercase border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-transform active:scale-95"
+                >
+                  <span>Explore Projects</span>
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+
+                <a 
+                  href="mailto:manojnarala245@gmail.com"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#E3170A] text-white hover:bg-[#C91408] font-black text-xs tracking-wider uppercase border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-transform active:scale-95"
+                >
+                  <Mail className="h-4 w-4" />
+                  <span>Contact Me</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 2: OFFICIAL DEVELOPER CARDS WALLET (ATM, AADHAR, DL, VOTER ID)
+            ========================================================================= */}
+        <section id="cards" className="mb-20">
+          <DeveloperCards />
+        </section>
+
+        {/* =========================================================================
+            SECTION 3: THREE CORE HIGHLIGHT PILLARS
+            ========================================================================= */}
+        <div className="grid sm:grid-cols-3 gap-6 mb-20">
+          <div className="p-6 rounded-3xl bg-[#FEF3C7] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
+            <div>
+              <div className="p-3 rounded-2xl bg-black text-[#FFCC00] w-fit mb-4">
+                <BookOpen className="h-6 w-6" />
+              </div>
+              <h3 className="font-black text-black text-xl mb-1">Academic Education</h3>
+              <p className="text-xs font-mono font-bold text-neutral-700 mb-3">NBKRIST • Vidyanagar (2022-2026)</p>
+              <p className="text-sm text-neutral-800 leading-relaxed font-medium">
+                Pursuing B.Tech in Artificial Intelligence &amp; Data Science at NBKR Institute of Science &amp; Technology. Comprehensive foundation in Algorithms, Operating Systems, Machine Learning, and Big Data.
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t-2 border-black/20 text-xs font-mono font-bold text-black">
+              Specialization: AI &amp; DS
+            </div>
+          </div>
+
+          <div className="p-6 rounded-3xl bg-[#F0FDF4] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
+            <div>
+              <div className="p-3 rounded-2xl bg-black text-[#00A86B] w-fit mb-4">
+                <Brain className="h-6 w-6" />
+              </div>
+              <h3 className="font-black text-black text-xl mb-1">Applied AI &amp; Vision</h3>
+              <p className="text-xs font-mono font-bold text-neutral-700 mb-3">Computer Vision &amp; Deep Learning</p>
+              <p className="text-sm text-neutral-800 leading-relaxed font-medium">
+                Hands-on training of YOLOv8 object detection pipelines, convolutional neural networks for classification, and custom dataset preprocessing for edge deployment.
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t-2 border-black/20 text-xs font-mono font-bold text-[#00A86B]">
+              YOLOv8 • PyTorch • OpenCV
+            </div>
+          </div>
+
+          <div className="p-6 rounded-3xl bg-[#EFF6FF] border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
+            <div>
+              <div className="p-3 rounded-2xl bg-black text-[#0077B5] w-fit mb-4">
+                <Cpu className="h-6 w-6" />
+              </div>
+              <h3 className="font-black text-black text-xl mb-1">Full-Stack Architecture</h3>
+              <p className="text-xs font-mono font-bold text-neutral-700 mb-3">Python • Flask • React • SQL</p>
+              <p className="text-sm text-neutral-800 leading-relaxed font-medium">
+                Developing resilient web services with Python (Flask/Django), robust relational database models in MySQL, and rich reactive frontends with React and TypeScript.
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t-2 border-black/20 text-xs font-mono font-bold text-[#0077B5]">
+              Python • React • PostgreSQL
+            </div>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            SECTION 4: TECHNICAL SKILLS & CAPABILITIES MATRIX
+            ========================================================================= */}
+        <section className="mb-20">
+          <div className="text-center mb-10">
+            <span className="text-xs font-mono font-black uppercase px-3 py-1 rounded-full bg-black text-[#FFCC00]">
+              Skill Matrix
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-black mt-2">
+              Technical Capabilities
+            </h2>
+            <p className="text-sm sm:text-base font-bold text-neutral-700 mt-1 max-w-xl mx-auto">
+              Technologies and frameworks utilized across production and academic engineering work.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {skillGroups.map((group) => {
+              const Icon = group.icon;
+              return (
+                <div 
+                  key={group.category}
+                  className={`p-6 sm:p-7 rounded-3xl border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] ${group.color}`}
+                >
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="p-2.5 rounded-2xl bg-black text-white">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="font-black text-xl text-black">
+                      {group.category}
+                    </h3>
                   </div>
 
-                  <div className="flex-1 space-y-2">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <div className="flex items-center gap-2">
-                        <h3 className="font-bold text-lg text-foreground">{item.title}</h3>
-                        <Badge variant="outline" className="text-[10px] font-mono">{item.badge}</Badge>
-                      </div>
-                      <span className="text-xs font-mono text-primary font-semibold">{item.period}</span>
-                    </div>
-
-                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
-                      <span className="font-semibold text-foreground">{item.institution}</span>
-                      <span>•</span>
-                      <span>{item.location}</span>
-                    </div>
-
-                    <p className="text-sm text-muted-foreground leading-relaxed pt-1">
-                      {item.description}
-                    </p>
+                  <div className="flex flex-wrap gap-2">
+                    {group.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className={`text-xs font-black font-mono px-3 py-1.5 rounded-xl border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] ${group.tagBg}`}
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
                 </div>
               );
             })}
           </div>
-        </div>
+        </section>
 
-        {/* Technical Competencies Matrix */}
-        <div className="mb-20">
-          <div className="mb-10">
-            <p className="text-xs font-mono text-primary tracking-wider uppercase font-semibold mb-2">Technical Profile</p>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground">Core Competencies &amp; Skills</h2>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="p-6 rounded-2xl bg-card border border-border/80 hover:border-primary/40 transition-all space-y-4">
-              <div className="flex items-center gap-2.5 text-primary">
-                <Code2 className="h-5 w-5" />
-                <h3 className="font-bold text-foreground">Languages &amp; Core CS</h3>
+        {/* =========================================================================
+            SECTION 5: CAREER & EDUCATION TIMELINE
+            ========================================================================= */}
+        <section className="mb-20">
+          <div className="p-8 sm:p-10 rounded-3xl bg-white border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
+            <div className="flex items-center gap-3 mb-8 pb-4 border-b-4 border-black">
+              <div className="p-3 rounded-2xl bg-black text-[#FFCC00]">
+                <Calendar className="h-6 w-6" />
               </div>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                Strong fundamentals in Object-Oriented Programming, Data Structures, Algorithms, and computational complexity.
-              </p>
-              <div className="flex flex-wrap gap-1.5 pt-1">
-                {['Python', 'Java', 'Data Structures & Algorithms', 'C Basics', 'Linux Shell', 'OOP Design'].map((s) => (
-                  <Badge key={s} variant="secondary" className="font-mono text-xs py-1 px-2.5">
-                    {s}
-                  </Badge>
-                ))}
+              <div>
+                <h2 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-black">
+                  Education &amp; Experience Journey
+                </h2>
+                <p className="text-xs sm:text-sm font-bold text-neutral-600">
+                  Chronological progression of engineering milestones and practical internships.
+                </p>
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-card border border-border/80 hover:border-primary/40 transition-all space-y-4">
-              <div className="flex items-center gap-2.5 text-purple-400">
-                <Brain className="h-5 w-5" />
-                <h3 className="font-bold text-foreground">AI &amp; Machine Learning</h3>
-              </div>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                Computer vision object detection, model fine-tuning, dataset preprocessing, and intelligent automation systems.
-              </p>
-              <div className="flex flex-wrap gap-1.5 pt-1">
-                {['YOLOv8', 'PyTorch Basics', 'NumPy', 'Pandas', 'OpenCV', 'Model Evaluation', 'Computer Vision'].map((s) => (
-                  <Badge key={s} variant="secondary" className="font-mono text-xs py-1 px-2.5">
-                    {s}
-                  </Badge>
-                ))}
-              </div>
-            </div>
+            <div className="space-y-8">
+              {timeline.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <div key={item.title} className="relative pl-6 sm:pl-8 border-l-4 border-black">
+                    {/* Circle Node */}
+                    <div className="absolute -left-[14px] top-1.5 w-6 h-6 rounded-full bg-black border-2 border-white flex items-center justify-center">
+                      <div className="w-2 h-2 rounded-full bg-[#FFCC00]" />
+                    </div>
 
-            <div className="p-6 rounded-2xl bg-card border border-border/80 hover:border-primary/40 transition-all space-y-4">
-              <div className="flex items-center gap-2.5 text-cyan-400">
-                <Layers className="h-5 w-5" />
-                <h3 className="font-bold text-foreground">Web &amp; Databases</h3>
-              </div>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                End-to-end web architectures, reactive client applications, RESTful microservices, and relational databases.
-              </p>
-              <div className="flex flex-wrap gap-1.5 pt-1">
-                {['React', 'TypeScript', 'Tailwind CSS', 'Flask', 'Django', 'PostgreSQL', 'MySQL', 'REST APIs'].map((s) => (
-                  <Badge key={s} variant="secondary" className="font-mono text-xs py-1 px-2.5">
-                    {s}
-                  </Badge>
-                ))}
-              </div>
+                    <div className="p-6 rounded-2xl bg-neutral-50 border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                      <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                        <span className={`text-[10px] font-mono font-black uppercase px-2.5 py-1 rounded-full border border-black ${item.color}`}>
+                          {item.badge}
+                        </span>
+                        <span className="text-xs font-mono font-bold text-neutral-600">{item.period}</span>
+                      </div>
+
+                      <h3 className="text-lg sm:text-xl font-black text-black leading-tight">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs font-mono font-bold text-[#E3170A] mt-0.5">
+                        {item.institution} • {item.location}
+                      </p>
+                      <p className="text-sm text-neutral-700 leading-relaxed font-medium mt-3">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Verified Profiles Box */}
-        <div className="rounded-3xl bg-card border-2 border-primary/30 p-8 sm:p-10 relative overflow-hidden shadow-2xl shadow-primary/10">
-          <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-primary/10 blur-[100px] pointer-events-none" />
-          
-          <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-3">
-              <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
-              <span className="text-xs font-mono text-primary font-semibold">Identity Verification</span>
-            </div>
-
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-3">Official Online Profiles</h2>
-            <p className="text-sm text-muted-foreground mb-8 max-w-2xl leading-relaxed">
-              To verify my identity, open-source work, and academic background across external platforms, refer to these canonical profiles belonging to <strong>Narala Manoj Yadav</strong>:
+        {/* =========================================================================
+            SECTION 6: VERIFIED SOCIAL & IDENTITY FOOTER
+            ========================================================================= */}
+        <section className="p-8 sm:p-10 rounded-3xl bg-black text-white border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="space-y-2 text-center md:text-left">
+            <h3 className="text-2xl font-black text-[#FFCC00] uppercase tracking-tight">
+              Connect with Narala Manoj Yadav
+            </h3>
+            <p className="text-sm text-neutral-300 max-w-xl font-medium">
+              Actively open for AI Engineering roles, Full-Stack internships, and collaborative software projects.
             </p>
-
-            <div className="grid sm:grid-cols-2 gap-4">
-              <a
-                href="https://github.com/NARALAMANOJYADAV"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-5 rounded-2xl bg-background/60 border border-border hover:border-primary/50 hover:bg-muted/60 transition-all flex items-center justify-between group shadow-sm"
-              >
-                <div className="flex items-center gap-3.5">
-                  <div className="p-2.5 rounded-xl bg-muted group-hover:bg-primary/10 transition-colors">
-                    <Github className="h-5 w-5 text-foreground" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-foreground">GitHub (Main Profile)</p>
-                    <p className="text-xs font-mono text-muted-foreground">github.com/NARALAMANOJYADAV</p>
-                  </div>
-                </div>
-                <ExternalLink className="h-4 w-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-
-              <a
-                href="https://github.com/naralamanoj"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-5 rounded-2xl bg-background/60 border border-border hover:border-primary/50 hover:bg-muted/60 transition-all flex items-center justify-between group shadow-sm"
-              >
-                <div className="flex items-center gap-3.5">
-                  <div className="p-2.5 rounded-xl bg-muted group-hover:bg-primary/10 transition-colors">
-                    <Github className="h-5 w-5 text-foreground" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-foreground">GitHub (Alternative)</p>
-                    <p className="text-xs font-mono text-muted-foreground">github.com/naralamanoj</p>
-                  </div>
-                </div>
-                <ExternalLink className="h-4 w-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/narala-manoj"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-5 rounded-2xl bg-background/60 border border-border hover:border-primary/50 hover:bg-muted/60 transition-all flex items-center justify-between group shadow-sm"
-              >
-                <div className="flex items-center gap-3.5">
-                  <div className="p-2.5 rounded-xl bg-muted group-hover:bg-primary/10 transition-colors">
-                    <Linkedin className="h-5 w-5 text-[#0A66C2]" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-foreground">LinkedIn</p>
-                    <p className="text-xs font-mono text-muted-foreground">linkedin.com/in/narala-manoj</p>
-                  </div>
-                </div>
-                <ExternalLink className="h-4 w-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-
-              <a
-                href="mailto:manojnarala245@gmail.com"
-                className="p-5 rounded-2xl bg-background/60 border border-border hover:border-primary/50 hover:bg-muted/60 transition-all flex items-center justify-between group shadow-sm"
-              >
-                <div className="flex items-center gap-3.5">
-                  <div className="p-2.5 rounded-xl bg-muted group-hover:bg-primary/10 transition-colors">
-                    <Mail className="h-5 w-5 text-accent" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-foreground">Direct Email</p>
-                    <p className="text-xs font-mono text-muted-foreground">manojnarala245@gmail.com</p>
-                  </div>
-                </div>
-                <ExternalLink className="h-4 w-4 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-            </div>
           </div>
-        </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-2.5">
+            <a
+              href="https://github.com/NARALAMANOJYADAV"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-neutral-900 hover:bg-neutral-800 text-white border-2 border-white/20 font-black text-xs transition-colors"
+            >
+              <Github className="h-4 w-4" />
+              <span>GitHub (Main)</span>
+            </a>
+
+            <a
+              href="https://github.com/naralamanoj"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-neutral-900 hover:bg-neutral-800 text-white border-2 border-white/20 font-black text-xs transition-colors"
+            >
+              <Github className="h-4 w-4" />
+              <span>GitHub (Alt)</span>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/narala-manoj"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-[#0077B5] hover:bg-[#005f93] text-white border-2 border-black font-black text-xs transition-colors"
+            >
+              <Linkedin className="h-4 w-4" />
+              <span>LinkedIn</span>
+            </a>
+
+            <a
+              href="mailto:manojnarala245@gmail.com"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-[#FFCC00] hover:bg-[#FFE066] text-black font-black text-xs transition-transform active:scale-95"
+            >
+              <Mail className="h-4 w-4" />
+              <span>Email Manoj</span>
+            </a>
+          </div>
+        </section>
+
       </main>
 
-      {/* Footer */}
-      <footer className="px-6 py-8 border-t border-border">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-          <span className="text-sm font-bold">
-            <span className="text-gradient font-black">NMY</span>
-            <span className="text-muted-foreground ml-1 font-mono text-xs">/ narala manoj yadav</span>
-          </span>
-          <div className="flex items-center gap-4">
-            <a href="https://github.com/NARALAMANOJYADAV" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile (NARALAMANOJYADAV)" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Github className="h-4 w-4" />
-            </a>
-            <a href="https://github.com/naralamanoj" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile (naralamanoj)" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Github className="h-4 w-4" />
-            </a>
-            <a href="https://www.linkedin.com/in/narala-manoj" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Linkedin className="h-4 w-4" />
-            </a>
-            <a href="mailto:manojnarala245@gmail.com" aria-label="Email Narala Manoj Yadav" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Mail className="h-4 w-4" />
-            </a>
+      {/* Persistent Footer */}
+      <footer className="w-full py-8 border-t-4 border-black bg-white text-black px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono font-bold">
+          <div className="flex items-center gap-2">
+            <span className="px-2 py-0.5 rounded bg-black text-[#FFCC00] font-black">NMY</span>
+            <span>Narala Manoj Yadav • tech4.in</span>
           </div>
-          <p className="text-xs text-muted-foreground">&copy; 2026 Narala Manoj Yadav. All rights reserved.</p>
+          <div className="flex items-center gap-4">
+            <a href="/" className="hover:underline">Home</a>
+            <a href="#cards" className="hover:underline">ID Cards</a>
+            <a href="/projects" className="hover:underline">Projects</a>
+            <a href="/NARALA-MANOJ-Resume.pdf" download className="hover:underline">Resume</a>
+          </div>
+          <p className="text-neutral-600">&copy; 2026 Narala Manoj Yadav. All rights reserved.</p>
         </div>
       </footer>
     </div>
