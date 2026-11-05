@@ -210,7 +210,7 @@ const Index = () => {
               </div>
 
               <p className="text-base text-muted-foreground leading-relaxed max-w-lg">
-                A passionate AI &amp; Data Science engineer and Full-Stack Developer bridging complex machine learning models, intelligent automation, and scalable web solutions with Python, Java, and modern frameworks.
+                I'm Narala Manoj Yadav (naralamanojyadav) — a passionate AI &amp; Data Science engineer and Full-Stack Developer bridging complex machine learning models, intelligent automation, and scalable web solutions with Python, Java, and modern frameworks.
               </p>
 
               <div className="flex flex-wrap gap-3">

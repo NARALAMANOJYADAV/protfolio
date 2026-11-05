@@ -133,3 +133,4 @@ export const projectsData: Project[] = [
     date: '2025'
   }
 ];
+

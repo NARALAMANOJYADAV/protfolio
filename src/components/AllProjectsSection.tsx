@@ -80,7 +80,7 @@ const AllProjectsSection = () => {
           <p className="text-sm font-mono text-primary tracking-wider uppercase mb-3">Open Source</p>
           <h2 className="text-4xl font-bold text-foreground sm:text-5xl">All GitHub Projects</h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
-            {repos.length} repositories across two GitHub accounts — spanning AI, full-stack, frontend, and experimental builds.
+            {repos.length} repositories across two GitHub accounts — spanning AI, full-stack, frontend, and experimental builds. Explore architectural case studies in the <a href="/projects" className="text-primary hover:underline font-semibold">Projects Showcase</a>.
           </p>
         </div>
 
