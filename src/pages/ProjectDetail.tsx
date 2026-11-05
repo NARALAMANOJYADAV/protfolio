@@ -1,6 +1,20 @@
 import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Github, Linkedin, Mail, ExternalLink, CheckCircle2, Code2, Layers, Cpu, ArrowRight } from 'lucide-react';
+import { 
+  ArrowLeft, 
+  Github, 
+  Linkedin, 
+  Mail, 
+  ExternalLink, 
+  CheckCircle2, 
+  Code2, 
+  Layers, 
+  Cpu, 
+  ArrowRight,
+  ShieldAlert,
+  Lightbulb,
+  Sparkles
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import Navigation from '@/components/Navigation';
@@ -76,7 +90,7 @@ const ProjectDetail = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       <Navigation />
 
       {/* JSON-LD Schema */}
@@ -85,7 +99,7 @@ const ProjectDetail = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(projectSchema) }}
       />
 
-      <main className="pt-28 pb-20 px-6 max-w-4xl mx-auto">
+      <main className="pt-28 pb-20 px-4 sm:px-6 max-w-4xl mx-auto">
         {/* Breadcrumb Navigation */}
         <div className="mb-8 flex items-center justify-between text-sm">
           <Link
@@ -95,43 +109,44 @@ const ProjectDetail = () => {
             <ArrowLeft className="h-4 w-4" />
             Back to All Projects
           </Link>
-          <Link to="/about" className="text-primary hover:underline font-medium">
-            About Narala Manoj Yadav →
+          <Link to="/about" className="inline-flex items-center gap-1.5 font-medium text-primary hover:underline">
+            About Narala Manoj Yadav
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
         {/* Header Block */}
         <div className="mb-12">
-          <div className="flex flex-wrap items-center gap-2 mb-4">
-            <Badge variant="outline" className="text-xs font-mono text-primary border-primary/30">
+          <div className="flex flex-wrap items-center gap-2.5 mb-4">
+            <span className="text-xs font-mono px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold">
               {project.category}
-            </Badge>
+            </span>
             <span className="text-xs font-mono text-muted-foreground">Released {project.date}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-foreground leading-tight mb-4">
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground leading-tight mb-4">
             {project.title}
           </h1>
 
-          <p className="text-sm font-mono text-muted-foreground flex items-center gap-2">
-            <span>Engineering &amp; Architecture:</span>
+          <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-mono text-muted-foreground">
+            <span>Engineering Architecture:</span>
             <Link to="/about" className="text-primary hover:underline font-semibold">
-              Narala Manoj Yadav (naralamanojyadav)
+              Narala Manoj Yadav (@naralamanojyadav)
             </Link>
-          </p>
+          </div>
 
-          <div className="flex flex-wrap gap-3 mt-6">
+          <div className="flex flex-wrap gap-3 mt-8">
             <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className="rounded-full">
+              <Button variant="outline" className="rounded-full px-5 bg-card border-border hover:border-primary/50 font-semibold">
                 <Github className="mr-2 h-4 w-4" />
-                View GitHub Source
+                View GitHub Repository
               </Button>
             </a>
             {project.liveUrl && (
               <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                <Button className="bg-gradient-primary text-primary-foreground rounded-full hover:opacity-90">
+                <Button className="bg-gradient-primary text-primary-foreground rounded-full px-6 hover:opacity-90 font-semibold shadow-lg shadow-primary/25">
                   <ExternalLink className="mr-2 h-4 w-4" />
-                  Launch Live Demo
+                  Launch Live Application
                 </Button>
               </a>
             )}
@@ -139,10 +154,10 @@ const ProjectDetail = () => {
         </div>
 
         {/* Content Section: Summary & Problem & Solution */}
-        <div className="space-y-10">
+        <div className="space-y-8">
           {/* Executive Overview */}
-          <div className="p-8 rounded-3xl bg-card border border-border">
-            <div className="flex items-center gap-2 mb-3 text-primary">
+          <div className="p-6 sm:p-8 rounded-3xl bg-card border border-border/80 shadow-xl">
+            <div className="flex items-center gap-2.5 mb-3 text-primary">
               <Cpu className="h-5 w-5" />
               <h2 className="text-lg font-bold text-foreground">Project Overview</h2>
             </div>
@@ -153,21 +168,21 @@ const ProjectDetail = () => {
 
           {/* Problem vs Solution Grid */}
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-card border border-border">
-              <h3 className="text-base font-bold text-foreground mb-2 flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
-                The Challenge
-              </h3>
+            <div className="p-6 sm:p-7 rounded-2xl bg-card border border-rose-500/30 hover:border-rose-500/50 transition-colors shadow-lg shadow-rose-500/5">
+              <div className="flex items-center gap-2 text-rose-400 font-bold mb-3">
+                <ShieldAlert className="h-5 w-5" />
+                <h3 className="text-base text-foreground">The Challenge</h3>
+              </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {project.problem}
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-card border border-border">
-              <h3 className="text-base font-bold text-foreground mb-2 flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-green-400" />
-                The Technical Solution
-              </h3>
+            <div className="p-6 sm:p-7 rounded-2xl bg-card border border-emerald-500/30 hover:border-emerald-500/50 transition-colors shadow-lg shadow-emerald-500/5">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold mb-3">
+                <Lightbulb className="h-5 w-5" />
+                <h3 className="text-base text-foreground">The Solution</h3>
+              </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {project.solution}
               </p>
@@ -175,12 +190,12 @@ const ProjectDetail = () => {
           </div>
 
           {/* Key Features */}
-          <div className="p-8 rounded-3xl bg-card border border-border">
-            <h3 className="text-xl font-bold text-foreground mb-5 flex items-center gap-2">
+          <div className="p-6 sm:p-8 rounded-3xl bg-card border border-border/80 shadow-xl">
+            <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2.5">
               <Layers className="h-5 w-5 text-primary" />
-              Key Architectural Features
+              Architectural &amp; Functional Highlights
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3.5">
               {project.keyFeatures.map((feat) => (
                 <li key={feat} className="flex items-start gap-3">
                   <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-1" />
@@ -191,14 +206,14 @@ const ProjectDetail = () => {
           </div>
 
           {/* Technologies Used */}
-          <div className="p-6 rounded-2xl bg-card border border-border">
-            <h3 className="text-sm font-mono text-primary uppercase tracking-wider mb-4 flex items-center gap-2">
+          <div className="p-6 sm:p-7 rounded-2xl bg-card border border-border/80">
+            <h3 className="text-xs font-mono text-primary uppercase tracking-wider mb-4 flex items-center gap-2 font-semibold">
               <Code2 className="h-4 w-4" />
               Technology Stack &amp; Libraries
             </h3>
             <div className="flex flex-wrap gap-2">
               {project.techStack.map((tech) => (
-                <Badge key={tech} variant="secondary" className="font-mono text-xs py-1 px-3">
+                <Badge key={tech} variant="secondary" className="font-mono text-xs py-1 px-3 bg-muted/80">
                   {tech}
                 </Badge>
               ))}
@@ -206,8 +221,8 @@ const ProjectDetail = () => {
           </div>
 
           {/* Author Card & Two-Way Internal Link */}
-          <div className="p-8 rounded-3xl bg-muted/40 border border-border flex flex-col sm:flex-row items-center gap-6">
-            <div className="w-20 h-20 rounded-2xl overflow-hidden shrink-0 border border-border shadow-md">
+          <div className="p-6 sm:p-8 rounded-3xl bg-card border-2 border-primary/20 flex flex-col sm:flex-row items-center gap-6 shadow-xl">
+            <div className="w-20 h-20 rounded-2xl overflow-hidden shrink-0 border-2 border-primary/40 shadow-lg">
               <img
                 src="/narala-manoj-yadav.jpg"
                 alt="Narala Manoj Yadav - Creator"
@@ -216,12 +231,15 @@ const ProjectDetail = () => {
                 className="w-full h-full object-cover object-top"
               />
             </div>
-            <div className="flex-1 text-center sm:text-left">
-              <h3 className="text-lg font-bold text-foreground">Developed by Narala Manoj Yadav</h3>
-              <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-                B.Tech in Artificial Intelligence &amp; Data Science at NBKRIST. Dedicated to building high-performance machine learning systems, automated data pipelines, and scalable web solutions.
+            <div className="flex-1 text-center sm:text-left space-y-1.5">
+              <div className="flex items-center justify-center sm:justify-start gap-2">
+                <h3 className="text-lg font-bold text-foreground">Developed by Narala Manoj Yadav</h3>
+                <CheckCircle2 className="h-4 w-4 text-primary" />
+              </div>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                B.Tech in Artificial Intelligence &amp; Data Science at NBKRIST. Dedicated to building high-performance machine learning systems, automated computer vision pipelines, and scalable web solutions.
               </p>
-              <div className="mt-3 flex flex-wrap gap-3 justify-center sm:justify-start">
+              <div className="mt-3 flex flex-wrap gap-4 justify-center sm:justify-start pt-1">
                 <Link to="/about" className="inline-flex items-center text-xs font-semibold text-primary hover:underline">
                   Read Full Biography <ArrowRight className="h-3 w-3 ml-1" />
                 </Link>
@@ -238,7 +256,7 @@ const ProjectDetail = () => {
       <footer className="px-6 py-8 border-t border-border">
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
           <span className="text-sm font-bold">
-            <span className="text-gradient">NMY</span>
+            <span className="text-gradient font-black">NMY</span>
             <span className="text-muted-foreground ml-1 font-mono text-xs">/ narala manoj yadav</span>
           </span>
           <div className="flex items-center gap-4">
@@ -255,7 +273,7 @@ const ProjectDetail = () => {
               <Mail className="h-4 w-4" />
             </a>
           </div>
-          <p className="text-xs text-muted-foreground">© 2026 Narala Manoj Yadav. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">&copy; 2026 Narala Manoj Yadav. All rights reserved.</p>
         </div>
       </footer>
     </div>

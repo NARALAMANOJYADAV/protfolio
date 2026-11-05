@@ -6,86 +6,49 @@
 
 @layer base {
   :root {
-    --background: 220 20% 97%;
-    --foreground: 220 25% 10%;
+    /* Rich Midnight Navy & Slate Theme with Vibrant Accents */
+    --background: 222 47% 9%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 25% 10%;
+    --card: 222 40% 12%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 10%;
+    --popover: 222 40% 12%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 250 84% 54%;
+    --primary: 250 84% 65%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 220 25% 10%;
+    --secondary: 222 35% 18%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 10% 46%;
+    --muted: 222 35% 16%;
+    --muted-foreground: 215 20% 68%;
 
-    --accent: 170 78% 46%;
-    --accent-foreground: 220 25% 10%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 250 84% 54%;
-
-    --radius: 0.75rem;
-
-    --gradient-primary: linear-gradient(135deg, hsl(250 84% 54%), hsl(280 84% 54%));
-    --gradient-accent: linear-gradient(135deg, hsl(170 78% 46%), hsl(190 78% 46%));
-    --gradient-dark: linear-gradient(135deg, hsl(220 25% 8%), hsl(250 25% 12%));
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 250 84% 54%;
-  }
-
-  .dark {
-    --background: 220 25% 6%;
-    --foreground: 220 14% 96%;
-
-    --card: 220 25% 10%;
-    --card-foreground: 220 14% 96%;
-
-    --popover: 220 25% 10%;
-    --popover-foreground: 220 14% 96%;
-
-    --primary: 250 84% 64%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 220 20% 16%;
-    --secondary-foreground: 220 14% 96%;
-
-    --muted: 220 20% 16%;
-    --muted-foreground: 220 10% 60%;
-
-    --accent: 170 78% 46%;
+    --accent: 170 85% 48%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62% 30%;
+    --destructive: 0 75% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 18%;
-    --input: 220 20% 18%;
-    --ring: 250 84% 64%;
-    --sidebar-background: 220 25% 8%;
-    --sidebar-foreground: 220 14% 96%;
-    --sidebar-primary: 250 84% 64%;
+    --border: 222 30% 20%;
+    --input: 222 30% 20%;
+    --ring: 250 84% 65%;
+
+    --radius: 0.85rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(250 84% 64%), hsl(285 84% 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(170 85% 48%), hsl(200 90% 50%));
+    --gradient-dark: linear-gradient(135deg, hsl(222 47% 9%), hsl(226 45% 14%));
+
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 250 84% 65%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 20% 14%;
-    --sidebar-accent-foreground: 220 14% 96%;
-    --sidebar-border: 220 20% 18%;
-    --sidebar-ring: 250 84% 64%;
+    --sidebar-accent: 222 35% 16%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 30% 20%;
+    --sidebar-ring: 250 84% 65%;
   }
 }
 
@@ -97,6 +60,8 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Space Grotesk', sans-serif;
+    background-color: hsl(222, 47%, 9%);
+    color: hsl(210, 40%, 98%);
   }
 
   code, .font-mono {
@@ -108,6 +73,11 @@
   .text-gradient {
     @apply bg-clip-text text-transparent;
     background-image: var(--gradient-primary);
+  }
+
+  .text-gradient-accent {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-accent);
   }
 
   .bg-gradient-primary {
@@ -138,12 +108,12 @@
 
   @keyframes pulse-glow {
     0%, 100% {
-      opacity: 0.4;
+      opacity: 0.35;
       transform: scale(1);
     }
     50% {
-      opacity: 0.7;
-      transform: scale(1.05);
+      opacity: 0.65;
+      transform: scale(1.04);
     }
   }
 
