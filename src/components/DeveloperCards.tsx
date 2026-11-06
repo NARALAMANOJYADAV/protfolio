@@ -1,440 +1,415 @@
 import { useState } from 'react';
 import { 
-  CreditCard, 
+  User, 
+  GraduationCap, 
+  Cpu, 
   ShieldCheck, 
-  Car, 
-  Vote, 
-  QrCode, 
-  Wifi, 
+  ExternalLink, 
+  Mail, 
+  MapPin, 
   CheckCircle2, 
-  Sparkles, 
-  ExternalLink,
-  Award,
-  Cpu,
-  GraduationCap
+  Copy, 
+  Check, 
+  Sparkles,
+  Layers,
+  Code2,
+  Calendar,
+  Briefcase
 } from 'lucide-react';
 
-type CardType = 'atm' | 'aadhar' | 'license' | 'voter';
-
 export const DeveloperCards = () => {
-  const [selectedCard, setSelectedCard] = useState<CardType>('atm');
-  const [avatarMode, setAvatarMode] = useState<'photo' | '3d'>('photo');
+  const [copiedField, setCopiedField] = useState<string | null>(null);
+  const [activeFilter, setActiveFilter] = useState<'all' | 'identity' | 'academics' | 'skills' | 'profiles'>('all');
 
-  const avatarSrc = avatarMode === 'photo' 
-    ? '/narala-manoj-yadav.jpg' 
-    : '/narala-manoj-transparent.png';
+  const copyToClipboard = (text: string, label: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedField(label);
+    setTimeout(() => setCopiedField(null), 2000);
+  };
 
   return (
-    <div className="w-full max-w-4xl mx-auto my-12 px-4 select-none">
+    <div className="w-full max-w-6xl mx-auto px-4 select-none">
       
-      {/* Header Info */}
+      {/* Section Header */}
       <div className="text-center mb-8">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black text-[#FFCC00] border-2 border-black font-black text-xs uppercase tracking-wider mb-3 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black text-[#FFCC00] font-black text-xs uppercase tracking-wider mb-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
           <Sparkles className="h-3.5 w-3.5 text-[#FFCC00]" />
-          <span>Official Developer Credentials &amp; Card Wallet</span>
+          <span>Structured Developer Dossier</span>
         </div>
-        <h2 className="text-3xl sm:text-5xl font-black text-black uppercase tracking-tight">
-          Unique Identity <span className="bg-black text-[#FFCC00] px-3 py-0.5 rounded-xl">Cards</span>
+        <h2 className="text-2xl sm:text-4xl font-black text-black uppercase tracking-tight">
+          Developer Information <span className="bg-black text-[#FFCC00] px-2.5 py-0.5 rounded-lg">Cards</span>
         </h2>
-        <p className="mt-2 text-sm sm:text-base font-semibold text-neutral-800 max-w-xl mx-auto">
-          Explore Narala Manoj Yadav's verified developer credentials reimagined in authentic Indian card styles.
+        <p className="mt-2 text-xs sm:text-sm font-bold text-neutral-700 max-w-xl mx-auto">
+          Structured card-type containers showcasing verified identity fields, academic records at NBKRIST, and technical capabilities.
         </p>
-      </div>
 
-      {/* Card Switcher Selector Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8">
-        <button
-          type="button"
-          onClick={() => setSelectedCard('atm')}
-          className={`px-4 py-2 rounded-2xl font-black text-xs sm:text-sm border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center gap-2 ${
-            selectedCard === 'atm'
-              ? 'bg-[#18181B] text-[#FFCC00] -translate-y-1'
-              : 'bg-white text-black hover:bg-neutral-100'
-          }`}
-        >
-          <CreditCard className="h-4 w-4" />
-          <span>ATM / Debit Card</span>
-        </button>
-
-        <button
-          type="button"
-          onClick={() => setSelectedCard('aadhar')}
-          className={`px-4 py-2 rounded-2xl font-black text-xs sm:text-sm border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center gap-2 ${
-            selectedCard === 'aadhar'
-              ? 'bg-[#E11D48] text-white -translate-y-1'
-              : 'bg-white text-black hover:bg-neutral-100'
-          }`}
-        >
-          <ShieldCheck className="h-4 w-4" />
-          <span>Aadhar Card</span>
-        </button>
-
-        <button
-          type="button"
-          onClick={() => setSelectedCard('license')}
-          className={`px-4 py-2 rounded-2xl font-black text-xs sm:text-sm border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center gap-2 ${
-            selectedCard === 'license'
-              ? 'bg-[#0077B5] text-white -translate-y-1'
-              : 'bg-white text-black hover:bg-neutral-100'
-          }`}
-        >
-          <Car className="h-4 w-4" />
-          <span>Driving License</span>
-        </button>
-
-        <button
-          type="button"
-          onClick={() => setSelectedCard('voter')}
-          className={`px-4 py-2 rounded-2xl font-black text-xs sm:text-sm border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center gap-2 ${
-            selectedCard === 'voter'
-              ? 'bg-[#00A86B] text-white -translate-y-1'
-              : 'bg-white text-black hover:bg-neutral-100'
-          }`}
-        >
-          <Vote className="h-4 w-4" />
-          <span>Voter ID Card</span>
-        </button>
-      </div>
-
-      {/* Picture Switcher (3D vs Real Photo) */}
-      <div className="flex items-center justify-center gap-2 mb-6">
-        <span className="text-xs font-mono font-bold text-neutral-700">Avatar Style on Cards:</span>
-        <div className="inline-flex p-1 rounded-full bg-black border-2 border-black">
-          <button
-            type="button"
-            onClick={() => setAvatarMode('photo')}
-            className={`px-3 py-0.5 rounded-full text-xs font-bold transition-all ${
-              avatarMode === 'photo' ? 'bg-[#FFCC00] text-black' : 'text-white'
-            }`}
-          >
-            📷 Real Photo
-          </button>
-          <button
-            type="button"
-            onClick={() => setAvatarMode('3d')}
-            className={`px-3 py-0.5 rounded-full text-xs font-bold transition-all ${
-              avatarMode === '3d' ? 'bg-[#FFCC00] text-black' : 'text-white'
-            }`}
-          >
-            ✨ 3D Render
-          </button>
+        {/* Filter Tabs */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mt-5">
+          {[
+            { id: 'all', label: 'All Containers' },
+            { id: 'identity', label: 'Identity & Bio' },
+            { id: 'academics', label: 'Academics (NBKRIST)' },
+            { id: 'skills', label: 'Tech Stack & Skills' },
+            { id: 'profiles', label: 'Verified Profiles' },
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              type="button"
+              onClick={() => setActiveFilter(tab.id as any)}
+              className={`px-3.5 py-1.5 rounded-xl font-black text-xs border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all ${
+                activeFilter === tab.id
+                  ? 'bg-black text-[#FFCC00] -translate-y-0.5'
+                  : 'bg-white text-black hover:bg-neutral-100'
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
         </div>
       </div>
 
-      {/* =========================================================================
-          THE INTERACTIVE CARDS STAGE
-          ========================================================================= */}
-      <div className="flex justify-center">
+      {/* Grid of Card Containers */}
+      <div className="grid md:grid-cols-2 gap-6">
 
-        {/* ---------------- CARD 1: ATM / PLATINUM DEBIT CARD ---------------- */}
-        {selectedCard === 'atm' && (
-          <div className="relative w-full max-w-[500px] aspect-[1.586/1] rounded-3xl p-6 sm:p-7 bg-gradient-to-br from-neutral-900 via-zinc-900 to-black text-white border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] overflow-hidden flex flex-col justify-between transition-transform duration-300 hover:scale-[1.02]">
-            {/* Gloss overlay */}
-            <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-white/10 blur-3xl pointer-events-none" />
-            <div className="absolute top-0 right-0 w-full h-full bg-radial from-transparent via-transparent to-black/60 pointer-events-none" />
-
-            {/* Top row */}
-            <div className="relative z-10 flex items-center justify-between">
-              <div>
-                <span className="font-mono text-[10px] tracking-widest text-[#FFCC00] uppercase font-bold block">
-                  TECH4 GLOBAL BANK
-                </span>
-                <span className="text-xs sm:text-sm font-black tracking-wider text-white">
-                  PLATINUM DEVELOPER CARD
-                </span>
-              </div>
-              <Wifi className="h-6 w-6 text-white/80 rotate-90" />
-            </div>
-
-            {/* EMV Chip & Contactless */}
-            <div className="relative z-10 flex items-center gap-4 my-2">
-              {/* Golden Chip */}
-              <div className="w-12 h-9 rounded-lg bg-gradient-to-tr from-amber-500 via-yellow-200 to-amber-600 border border-amber-300 p-1 flex flex-col justify-between shadow-md">
-                <div className="w-full h-1 bg-amber-700/40 rounded-full" />
-                <div className="w-3/4 h-1 bg-amber-700/40 rounded-full" />
-                <div className="w-full h-1 bg-amber-700/40 rounded-full" />
-              </div>
-
-              {/* Holographic Dev Tag */}
-              <div className="px-2.5 py-1 rounded-md bg-white/10 border border-white/20 text-[10px] font-mono font-bold tracking-widest text-emerald-400">
-                AI &amp; FULL-STACK
-              </div>
-            </div>
-
-            {/* Card Number */}
-            <div className="relative z-10">
-              <p className="font-mono text-lg sm:text-2xl font-bold tracking-[0.22em] text-white/95 drop-shadow">
-                4216 •••• •••• 2026
-              </p>
-            </div>
-
-            {/* Bottom Row: Holder Name & Dates & Mastercard/Visa style badge */}
-            <div className="relative z-10 flex items-end justify-between pt-1">
-              <div>
-                <span className="text-[9px] font-mono text-neutral-400 block tracking-widest uppercase">
-                  CARDHOLDER / VALID THRU
-                </span>
-                <span className="font-mono font-black text-sm sm:text-base text-white tracking-wider block">
-                  NARALA MANOJ YADAV
-                </span>
-                <span className="text-[10px] font-mono text-[#FFCC00]">
-                  EXP: 06/2026 • NBKRIST
-                </span>
-              </div>
-
-              {/* Mastercard style interlocking spheres */}
-              <div className="flex items-center">
-                <div className="w-8 h-8 rounded-full bg-[#E3170A] opacity-90 shadow-md" />
-                <div className="w-8 h-8 rounded-full bg-[#FFCC00] opacity-90 -ml-4 shadow-md mix-blend-screen" />
-              </div>
-            </div>
-          </div>
-        )}
-
-
-        {/* ---------------- CARD 2: AADHAR CARD ---------------- */}
-        {selectedCard === 'aadhar' && (
-          <div className="relative w-full max-w-[500px] aspect-[1.586/1] rounded-3xl p-5 sm:p-6 bg-[#FCFBF7] text-black border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] overflow-hidden flex flex-col justify-between transition-transform duration-300 hover:scale-[1.02]">
+        {/* ---------------- CARD CONTAINER 1: IDENTITY & PROFILE ---------------- */}
+        {(activeFilter === 'all' || activeFilter === 'identity') && (
+          <div className="rounded-3xl bg-white border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] overflow-hidden flex flex-col justify-between hover:-translate-y-1 transition-transform">
             
-            {/* Top Tricolor Bar (Indian Flag Saffron, White, Green) */}
-            <div className="relative z-10">
-              <div className="h-1.5 w-full bg-gradient-to-r from-[#FF9933] via-white to-[#138808] rounded-full mb-2 border border-black/20" />
-              <div className="flex items-center justify-between border-b-2 border-neutral-300 pb-1.5">
-                <div className="flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-full bg-red-600 text-white font-black text-[9px] flex items-center justify-center border border-black">
-                    INDIA
-                  </div>
-                  <div>
-                    <span className="font-bold text-[10px] text-neutral-900 block leading-tight">
-                      भारत सरकार • Government of India
-                    </span>
-                    <span className="font-extrabold text-[11px] text-[#E11D48] block leading-tight">
-                      Developer Identification Authority
-                    </span>
-                  </div>
+            {/* Card Header Bar */}
+            <div className="p-4 sm:p-5 bg-[#FFF9D2] border-b-3 border-black flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-black text-[#FFCC00] flex items-center justify-center font-black border-2 border-black">
+                  <User className="h-5 w-5" />
                 </div>
-                <span className="font-mono text-[9px] font-bold text-neutral-500">
-                  UIDAI / TECH4-IN
+                <div>
+                  <h3 className="font-black text-base text-black leading-tight">Identity &amp; Profile Container</h3>
+                  <span className="text-[11px] font-mono font-bold text-neutral-600">Personal &amp; Professional Fields</span>
+                </div>
+              </div>
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-600 text-[10px] font-black">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                Active
+              </span>
+            </div>
+
+            {/* Field Rows */}
+            <div className="p-5 sm:p-6 space-y-3 text-xs sm:text-sm">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-neutral-200 gap-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px]">Full Legal Name:</span>
+                <span className="font-black text-black">Narala Manoj Yadav</span>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-neutral-200 gap-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px]">Primary Handle:</span>
+                <div className="flex items-center gap-2">
+                  <span className="font-mono font-black text-black bg-neutral-100 px-2 py-0.5 rounded border border-neutral-300">
+                    @naralamanojyadav
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => copyToClipboard('naralamanojyadav', 'handle')}
+                    className="p-1 text-neutral-500 hover:text-black"
+                    title="Copy Handle"
+                  >
+                    {copiedField === 'handle' ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-neutral-200 gap-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px]">Alternative Handle:</span>
+                <span className="font-mono font-bold text-neutral-800">@naralamanoj</span>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-neutral-200 gap-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px]">Primary Discipline:</span>
+                <span className="font-bold text-black">AI &amp; Data Science Engineer</span>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-neutral-200 gap-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px]">Secondary Discipline:</span>
+                <span className="font-bold text-black">Full-Stack Software Developer</span>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-neutral-200 gap-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px]">Geographic Location:</span>
+                <span className="font-bold text-neutral-800 flex items-center gap-1">
+                  <MapPin className="h-3.5 w-3.5 text-[#E3170A]" /> Nellore, Andhra Pradesh, India
                 </span>
               </div>
-            </div>
 
-            {/* Middle Section: Photo + Official Details + QR */}
-            <div className="relative z-10 flex items-center gap-4 my-2">
-              {/* Photo */}
-              <div className="w-20 sm:w-24 aspect-[3/4] rounded-xl overflow-hidden border-2 border-black bg-neutral-100 shadow-md shrink-0">
-                <img
-                  src={avatarSrc}
-                  alt="Narala Manoj Yadav"
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
-
-              {/* Data Details */}
-              <div className="flex-1 space-y-0.5 text-xs">
-                <div>
-                  <span className="text-[9px] font-bold text-neutral-500 block">Name:</span>
-                  <span className="font-black text-sm text-black block leading-tight">Narala Manoj Yadav</span>
-                  <span className="text-[10px] font-bold text-neutral-700 block">నరాల మనోజ్ యాదవ్</span>
-                </div>
-                <div className="pt-0.5">
-                  <span className="text-[9px] font-bold text-neutral-500 block">DOB / Batch:</span>
-                  <span className="font-bold text-neutral-800">2003 / 2022 - 2026 (B.Tech)</span>
-                </div>
-                <div>
-                  <span className="text-[9px] font-bold text-neutral-500 block">Gender / Specialization:</span>
-                  <span className="font-bold text-neutral-800">Male • Artificial Intelligence &amp; DS</span>
-                </div>
-              </div>
-
-              {/* QR Code Graphic */}
-              <div className="hidden sm:flex flex-col items-center justify-center p-2 rounded-xl bg-white border border-neutral-300 shadow-sm shrink-0">
-                <QrCode className="h-12 w-12 text-black" />
-                <span className="text-[8px] font-mono font-bold text-neutral-600 mt-0.5">SCAN VERIFY</span>
-              </div>
-            </div>
-
-            {/* Bottom Row: Red Aadhar Number & Slogan */}
-            <div className="relative z-10 border-t-2 border-red-600 pt-1.5 flex flex-col items-center justify-center">
-              <p className="font-mono text-base sm:text-xl font-black tracking-widest text-[#E11D48] drop-shadow-sm">
-                8106 &nbsp; 9050 &nbsp; 2026
-              </p>
-              <p className="text-[9px] font-bold text-neutral-600 tracking-wider">
-                మేరా కోడ్, మేరీ పెహచాన్ • My Code, My Identity
-              </p>
-            </div>
-          </div>
-        )}
-
-
-        {/* ---------------- CARD 3: DRIVING LICENSE ---------------- */}
-        {selectedCard === 'license' && (
-          <div className="relative w-full max-w-[500px] aspect-[1.586/1] rounded-3xl p-5 sm:p-6 bg-[#EFF6FF] text-black border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] overflow-hidden flex flex-col justify-between transition-transform duration-300 hover:scale-[1.02]">
-            
-            {/* Header: Andhra Pradesh Transport Department */}
-            <div className="relative z-10 border-b-2 border-blue-900 pb-1.5">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pt-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px]">Official Email:</span>
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-[#0077B5] text-white font-black text-[9px] flex items-center justify-center border-2 border-black">
-                    AP
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-extrabold uppercase text-blue-950 block leading-tight">
-                      Union of India • Driving Licence
-                    </span>
-                    <span className="text-[11px] font-black text-[#0077B5] block leading-tight">
-                      Andhra Pradesh Software &amp; AI Authority
-                    </span>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <span className="text-[9px] font-mono font-bold text-neutral-500 block">DL NO:</span>
-                  <span className="font-mono font-black text-xs text-blue-900 block">
-                    AP-26-2022-NMY
-                  </span>
+                  <a href="mailto:manojnarala245@gmail.com" className="font-mono font-bold text-black hover:text-[#E3170A] underline">
+                    manojnarala245@gmail.com
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => copyToClipboard('manojnarala245@gmail.com', 'email')}
+                    className="p-1 text-neutral-500 hover:text-black"
+                    title="Copy Email"
+                  >
+                    {copiedField === 'email' ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
+                  </button>
                 </div>
               </div>
             </div>
 
-            {/* Middle Section: Photo & Driving Classes */}
-            <div className="relative z-10 flex items-start gap-4 my-1.5">
-              {/* Photo with Smart Chip */}
-              <div className="flex flex-col items-center gap-1.5 shrink-0">
-                <div className="w-20 sm:w-22 aspect-[3/4] rounded-xl overflow-hidden border-2 border-black bg-white shadow-md">
-                  <img
-                    src={avatarSrc}
-                    alt="Narala Manoj Yadav"
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-                {/* Microchip */}
-                <div className="w-8 h-6 rounded bg-amber-400 border border-amber-600 p-0.5 flex flex-col justify-around">
-                  <div className="h-0.5 bg-amber-700/50 w-full" />
-                  <div className="h-0.5 bg-amber-700/50 w-3/4" />
-                </div>
-              </div>
-
-              {/* Data & Authorised Categories */}
-              <div className="flex-1 space-y-1 text-xs">
-                <div>
-                  <span className="text-[9px] font-bold text-neutral-500 block">Name &amp; Father / Institution:</span>
-                  <span className="font-black text-sm text-black block leading-tight">Narala Manoj Yadav</span>
-                  <span className="text-[10px] font-bold text-blue-900 block">NBKR Institute of Science &amp; Technology</span>
-                </div>
-
-                <div className="p-2 rounded-xl bg-white border border-blue-200 shadow-sm space-y-0.5">
-                  <span className="text-[9px] font-mono font-black text-blue-900 block uppercase">
-                    Authorised To Drive / Deploy:
-                  </span>
-                  <div className="grid grid-cols-2 gap-1 text-[10px] font-bold text-neutral-800">
-                    <div>• LMV: Full-Stack React</div>
-                    <div>• HMV: Python / Flask</div>
-                    <div>• TRANS: YOLOv8 Vision</div>
-                    <div>• MCWG: Java &amp; DSA</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom Row: Validity & Blood Group */}
-            <div className="relative z-10 border-t-2 border-blue-900 pt-1.5 flex items-center justify-between text-[10px] font-mono font-bold">
-              <div>
-                <span className="text-neutral-500">VALIDITY: </span>
-                <span className="text-black font-black">2022 - 2026 (CAREER LIFETIME)</span>
-              </div>
-              <div className="px-2 py-0.5 rounded bg-red-100 text-red-800 border border-red-300 font-black">
-                BLOOD GP: AI+
-              </div>
+            {/* Footer Tag */}
+            <div className="px-5 py-3 bg-neutral-50 border-t-2 border-neutral-200 flex items-center justify-between text-[11px] font-mono font-bold">
+              <span className="text-neutral-500">Status: Verified Creator</span>
+              <span className="text-black bg-[#FFCC00] px-2 py-0.5 rounded border border-black font-black">tech4.in</span>
             </div>
           </div>
         )}
 
-
-        {/* ---------------- CARD 4: VOTER ID (EPIC) CARD ---------------- */}
-        {selectedCard === 'voter' && (
-          <div className="relative w-full max-w-[500px] aspect-[1.586/1] rounded-3xl p-5 sm:p-6 bg-[#F0FDF4] text-black border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] overflow-hidden flex flex-col justify-between transition-transform duration-300 hover:scale-[1.02]">
+        {/* ---------------- CARD CONTAINER 2: ACADEMIC CREDENTIALS ---------------- */}
+        {(activeFilter === 'all' || activeFilter === 'academics') && (
+          <div className="rounded-3xl bg-white border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] overflow-hidden flex flex-col justify-between hover:-translate-y-1 transition-transform">
             
-            {/* Top Bar with Holographic Strip */}
-            <div className="relative z-10">
-              <div className="flex items-center justify-between border-b-2 border-green-800 pb-1.5">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-[#00A86B] text-white font-black text-[9px] flex items-center justify-center border-2 border-black">
-                    ECI
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-extrabold uppercase text-green-950 block leading-tight">
-                      Election Commission of India • భారత ఎన్నికల సంఘం
-                    </span>
-                    <span className="text-[11px] font-black text-[#00A86B] block leading-tight">
-                      Developer Elector's Identity Card (EPIC)
-                    </span>
-                  </div>
+            {/* Card Header Bar */}
+            <div className="p-4 sm:p-5 bg-[#EFF6FF] border-b-3 border-black flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-[#0077B5] text-white flex items-center justify-center font-black border-2 border-black">
+                  <GraduationCap className="h-5 w-5" />
                 </div>
-                <div className="text-right">
-                  <span className="font-mono font-black text-xs sm:text-sm text-green-900 px-2 py-0.5 bg-green-200 border border-green-800 rounded">
-                    NMY081069
-                  </span>
+                <div>
+                  <h3 className="font-black text-base text-black leading-tight">Academic &amp; College Credentials</h3>
+                  <span className="text-[11px] font-mono font-bold text-neutral-600">Institutional Records</span>
                 </div>
+              </div>
+              <span className="px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-900 border border-blue-400 text-[10px] font-black">
+                2022 - 2026
+              </span>
+            </div>
+
+            {/* Field Rows */}
+            <div className="p-5 sm:p-6 space-y-3 text-xs sm:text-sm">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-neutral-200 gap-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px]">Institution:</span>
+                <span className="font-black text-black text-right">NBKR Institute of Science &amp; Technology</span>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-neutral-200 gap-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px]">Campus Location:</span>
+                <span className="font-bold text-neutral-800">Vidyanagar, Nellore Dist., AP</span>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-neutral-200 gap-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px]">Accreditation &amp; Status:</span>
+                <span className="font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-300">
+                  Autonomous • NAAC 'A+' Grade
+                </span>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-neutral-200 gap-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px]">Degree:</span>
+                <span className="font-black text-black">Bachelor of Technology (B.Tech)</span>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-neutral-200 gap-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px]">Major / Branch:</span>
+                <span className="font-bold text-[#0077B5]">Artificial Intelligence &amp; Data Science</span>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-neutral-200 gap-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px]">Core Coursework:</span>
+                <span className="font-bold text-neutral-800 text-right">Machine Learning, Vision, DSA, DBMS, OS</span>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pt-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px]">Applied Capstone:</span>
+                <span className="font-bold text-neutral-800">YOLOv8 Edge Vision &amp; Counseling Portal</span>
               </div>
             </div>
 
-            {/* Middle Section: Portrait with Hologram & Details */}
-            <div className="relative z-10 flex items-center gap-4 my-2">
-              {/* Photo with Silver Security Overlay */}
-              <div className="relative w-20 sm:w-24 aspect-[3/4] rounded-xl overflow-hidden border-2 border-black bg-white shadow-md shrink-0">
-                <img
-                  src={avatarSrc}
-                  alt="Narala Manoj Yadav"
-                  className="w-full h-full object-cover object-top"
-                />
-                {/* Hologram Bar */}
-                <div className="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-r from-silver via-emerald-300 to-amber-200 opacity-60 pointer-events-none" />
-              </div>
-
-              {/* Data Details */}
-              <div className="flex-1 space-y-1 text-xs">
-                <div>
-                  <span className="text-[9px] font-bold text-neutral-500 block">Elector's Name:</span>
-                  <span className="font-black text-sm text-black block leading-tight">Narala Manoj Yadav</span>
-                </div>
-                <div>
-                  <span className="text-[9px] font-bold text-neutral-500 block">Institution / Constituency:</span>
-                  <span className="font-bold text-neutral-800 block">NBKR Institute of Science &amp; Technology</span>
-                  <span className="text-[10px] font-semibold text-green-800">Vidyanagar, Nellore, AP</span>
-                </div>
-                <div>
-                  <span className="text-[9px] font-bold text-neutral-500 block">Society Contributor:</span>
-                  <span className="font-bold text-neutral-900">IEEE &amp; ISTE Student Member</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom Row: Barcode & Seal */}
-            <div className="relative z-10 border-t-2 border-green-800 pt-1.5 flex items-center justify-between">
-              {/* Barcode Graphic */}
-              <div className="flex items-center gap-0.5">
-                {[4, 2, 6, 1, 5, 3, 7, 2, 8, 4, 2, 5, 3, 6, 4, 2, 7, 3, 5, 2, 4].map((h, i) => (
-                  <div key={i} className="w-1 bg-black rounded-sm" style={{ height: `${h * 2 + 10}px` }} />
-                ))}
-              </div>
-              <div className="text-right">
-                <span className="text-[9px] font-mono font-bold text-neutral-600 block">AUTHENTICATED</span>
-                <span className="text-[10px] font-mono font-black text-green-900">TECH4.IN VERIFIED</span>
-              </div>
+            {/* Footer Tag */}
+            <div className="px-5 py-3 bg-neutral-50 border-t-2 border-neutral-200 flex items-center justify-between text-[11px] font-mono font-bold">
+              <span className="text-neutral-500">Affiliation: JNTUA / Autonomous</span>
+              <span className="text-blue-900 font-black">Class of 2026</span>
             </div>
           </div>
         )}
 
-      </div>
+        {/* ---------------- CARD CONTAINER 3: TECH STACK & CAPABILITIES ---------------- */}
+        {(activeFilter === 'all' || activeFilter === 'skills') && (
+          <div className="rounded-3xl bg-white border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] overflow-hidden flex flex-col justify-between hover:-translate-y-1 transition-transform">
+            
+            {/* Card Header Bar */}
+            <div className="p-4 sm:p-5 bg-[#F0FDF4] border-b-3 border-black flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-[#00A86B] text-white flex items-center justify-center font-black border-2 border-black">
+                  <Cpu className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="font-black text-base text-black leading-tight">Engineering &amp; Skill Fields</h3>
+                  <span className="text-[11px] font-mono font-bold text-neutral-600">Technical Competencies</span>
+                </div>
+              </div>
+              <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-400 text-[10px] font-black">
+                Full-Stack + AI
+              </span>
+            </div>
 
-      {/* Quick Interactive Summary of the Selected Card */}
-      <div className="mt-8 p-4 rounded-2xl bg-white border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-center max-w-xl mx-auto">
-        <p className="text-xs font-bold text-neutral-800">
-          {selectedCard === 'atm' && '💳 The Tech Platinum Debit Card showcases Narala Manoj Yadav\'s coding stack and full-stack project capabilities.'}
-          {selectedCard === 'aadhar' && '🪪 The Aadhar Card confirms Manoj\'s verified identity, B.Tech education at NBKRIST, and official contact credentials.'}
-          {selectedCard === 'license' && '🚗 The Driving License represents authorized execution of full-stack engineering, real-time YOLOv8 models, and cloud databases.'}
-          {selectedCard === 'voter' && '🗳️ The Voter ID Card verifies Manoj\'s active participation in technical societies (IEEE & ISTE) and student governance.'}
-        </p>
+            {/* Field Rows */}
+            <div className="p-5 sm:p-6 space-y-3 text-xs sm:text-sm">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between pb-2 border-b border-neutral-200 gap-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px] shrink-0">Languages:</span>
+                <div className="flex flex-wrap gap-1 justify-end">
+                  {['Python', 'Java', 'JavaScript', 'TypeScript', 'SQL', 'C'].map(l => (
+                    <span key={l} className="px-2 py-0.5 rounded bg-neutral-100 border border-neutral-300 font-mono text-[11px] font-bold">
+                      {l}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between pb-2 border-b border-neutral-200 gap-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px] shrink-0">AI &amp; Computer Vision:</span>
+                <div className="flex flex-wrap gap-1 justify-end">
+                  {['YOLOv8', 'PyTorch', 'OpenCV', 'Scikit-Learn', 'CNN', 'Data Cleaning'].map(l => (
+                    <span key={l} className="px-2 py-0.5 rounded bg-rose-50 border border-rose-200 text-rose-800 font-mono text-[11px] font-bold">
+                      {l}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between pb-2 border-b border-neutral-200 gap-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px] shrink-0">Web &amp; Backend:</span>
+                <div className="flex flex-wrap gap-1 justify-end">
+                  {['React.js', 'Flask', 'Node.js', 'Tailwind CSS', 'REST APIs', 'Vite'].map(l => (
+                    <span key={l} className="px-2 py-0.5 rounded bg-blue-50 border border-blue-200 text-blue-800 font-mono text-[11px] font-bold">
+                      {l}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between pb-2 border-b border-neutral-200 gap-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px] shrink-0">Databases:</span>
+                <div className="flex flex-wrap gap-1 justify-end">
+                  {['MySQL', 'PostgreSQL', 'SQLite', 'Relational Schema'].map(l => (
+                    <span key={l} className="px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200 text-emerald-800 font-mono text-[11px] font-bold">
+                      {l}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-1 pt-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px] shrink-0">DevOps &amp; Tools:</span>
+                <div className="flex flex-wrap gap-1 justify-end">
+                  {['Git', 'GitHub', 'Linux Shell', 'Postman', 'Render', 'Netlify'].map(l => (
+                    <span key={l} className="px-2 py-0.5 rounded bg-purple-50 border border-purple-200 text-purple-800 font-mono text-[11px] font-bold">
+                      {l}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Footer Tag */}
+            <div className="px-5 py-3 bg-neutral-50 border-t-2 border-neutral-200 flex items-center justify-between text-[11px] font-mono font-bold">
+              <span className="text-neutral-500">Architecture: End-to-End</span>
+              <span className="text-emerald-800 font-black">Production Tested</span>
+            </div>
+          </div>
+        )}
+
+        {/* ---------------- CARD CONTAINER 4: VERIFIED ACCOUNTS & PROFILES ---------------- */}
+        {(activeFilter === 'all' || activeFilter === 'profiles') && (
+          <div className="rounded-3xl bg-white border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] overflow-hidden flex flex-col justify-between hover:-translate-y-1 transition-transform">
+            
+            {/* Card Header Bar */}
+            <div className="p-4 sm:p-5 bg-[#FFF1F2] border-b-3 border-black flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-[#E3170A] text-white flex items-center justify-center font-black border-2 border-black">
+                  <ShieldCheck className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="font-black text-base text-black leading-tight">Verified Platforms &amp; Handles</h3>
+                  <span className="text-[11px] font-mono font-bold text-neutral-600">Official Links &amp; Profiles</span>
+                </div>
+              </div>
+              <span className="px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-900 border border-rose-400 text-[10px] font-black">
+                Authoritative
+              </span>
+            </div>
+
+            {/* Field Rows */}
+            <div className="p-5 sm:p-6 space-y-3 text-xs sm:text-sm">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-neutral-200 gap-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px]">GitHub (Primary):</span>
+                <a 
+                  href="https://github.com/NARALAMANOJYADAV"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 font-mono font-bold text-black hover:text-[#E3170A] underline"
+                >
+                  <span>github.com/NARALAMANOJYADAV</span>
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-neutral-200 gap-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px]">GitHub (Alternative):</span>
+                <a 
+                  href="https://github.com/naralamanoj"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 font-mono font-bold text-black hover:text-[#E3170A] underline"
+                >
+                  <span>github.com/naralamanoj</span>
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-neutral-200 gap-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px]">LinkedIn:</span>
+                <a 
+                  href="https://www.linkedin.com/in/narala-manoj"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 font-mono font-bold text-[#0077B5] hover:underline"
+                >
+                  <span>linkedin.com/in/narala-manoj</span>
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-neutral-200 gap-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px]">Official Website:</span>
+                <a 
+                  href="https://tech4.in"
+                  className="inline-flex items-center gap-1.5 font-mono font-bold text-black hover:underline"
+                >
+                  <span>https://tech4.in</span>
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pt-1">
+                <span className="font-mono text-neutral-500 font-bold uppercase text-[10px]">Curriculum Vitae:</span>
+                <a 
+                  href="/NARALA-MANOJ-Resume.pdf"
+                  download
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-black text-[#FFCC00] font-black text-xs hover:bg-neutral-800 transition-colors"
+                >
+                  <span>Download Resume PDF</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Footer Tag */}
+            <div className="px-5 py-3 bg-neutral-50 border-t-2 border-neutral-200 flex items-center justify-between text-[11px] font-mono font-bold">
+              <span className="text-neutral-500">Security: Verified Canonical</span>
+              <span className="text-black font-black">Googlebot Crawlable</span>
+            </div>
+          </div>
+        )}
+
       </div>
     </div>
   );

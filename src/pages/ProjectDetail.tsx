@@ -122,7 +122,7 @@ const ProjectDetail = () => {
             <span className="text-xs font-mono font-bold text-neutral-600">Release Year: {project.date}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-black leading-tight mb-4">
+          <h1 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-black leading-tight mb-3">
             {project.title}
           </h1>
 

@@ -301,7 +301,7 @@ const About = () => {
                 <span className="text-xs font-mono font-bold text-neutral-600">ID: naralamanojyadav</span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-black leading-tight">
+              <h1 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-black leading-tight">
                 Engineering <span className="bg-[#FFCC00] px-2 py-0.5 rounded-lg border-2 border-black">AI &amp; Full-Stack</span> Systems
               </h1>
 

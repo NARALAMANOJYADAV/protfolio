@@ -160,7 +160,7 @@ const Projects = () => {
             <span className="text-xs font-mono font-bold text-neutral-600">Architect: Narala Manoj Yadav</span>
           </div>
 
-          <h1 className="text-3xl sm:text-6xl font-black uppercase tracking-tight text-black leading-tight">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-black leading-tight">
             Featured <span className="bg-[#FFCC00] px-2 py-0.5 rounded-lg border-2 border-black">Projects</span> &amp; Systems
           </h1>
 
